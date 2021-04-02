@@ -1,0 +1,57 @@
+BASIC EXERCISES:
+
+1. Get radius from user & find area of circle.
+r=input("Enter the radius of circle: ")
+Formula: 3.14*r*r
+
+2. Count the number 4 in a given list
+myList=[12,4,23,4,3]
+Expected result = 2
+
+3. Parse a string to Float or Integer
+Eg. input will be "246.2458" as string
+Expected out will be 246.2458 as float & 246 as int
+
+
+4. Write a Python function to test whether a passed letter is a vowel or not.
+
+5. Write function to sum of three given integers. However, if two values are equal sum will be zero
+Eg.
+If integer is 3, 4, 1 then expected output will be 8
+If integer is 3, 4, 3 then expected output will be 0
+
+
+6. Write a function to get the smallest number from a passed list.
+smallNumList = [1, 2, -8, 0]
+Expected outout: -8
+
+7. Write a Python function to count the number of strings where the string length is 2 or more and the first and last character are same from a given list of strings.
+Sample List : ['abc', 'xyz', 'aba', '1221']
+Expected Result : 2
+
+
+
+8. Write a Python program to reverse strings in a given list of string values.
+Original lists:
+['Red', 'Green', 'Blue', 'White', 'Black']
+Reverse strings of the said given list:
+['deR', 'neerG', 'eulB', 'etihW', 'kcalB']
+
+
+
+9. Write a Python program to sort a given mixed list of integers and strings. Numbers must be sorted before strings.
+Original list:
+[19, 'red', 12, 'green', 'blue', 10, 'white', 'green', 1]
+Sort the given mixed list of integers and strings:
+[1, 10, 12, 19, 'blue', 'green', 'green', 'red', 'white']
+
+
+10. Write a Python program to clone or copy a list.
+
+11. Write a program to check given number is odd or even number.
+
+12. Loop through the letters in the word "banana"
+
+
+
+

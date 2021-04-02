@@ -1,0 +1,788 @@
+PYTHON STRINGS
+
+Strings in python are surrounded by either single quotation marks, or double quotation marks
+'hello' is the same as "hello"
+You can display a string literal with the print() function
+print("Hello")
+print('Hello')
+-------------------------------------------------------------------------------
+You can assign a multiline string to a variable by using three quotes
+a = """Lorem ipsum dolor sit amet,
+consectetur adipiscing elit,
+sed do eiusmod tempor incididunt
+ut labore et dolore magna aliqua."""
+print(a)
+-------------------------------------------------------------------------------
+Python does not have a character data type, a single character is simply a string with a length of 1
+Square brackets can be used to access elements of the string
+a = "Hello, World!"
+print(a[1])
+-------------------------------------------------------------------------------
+we can loop through the characters in a string, with a for loop
+for x in "banana":
+  print(x)
+-------------------------------------------------------------------------------
+To check if a certain phrase or character is present in a string, we can use the keyword in
+txt = "The best things in life are free!"
+print("free" in txt)
+
+with if,
+txt = "The best things in life are free!"
+if "free" in txt:
+  print("Yes, 'free' is present.")
+-------------------------------------------------------------------------------
+To check if a certain phrase or character is NOT present in a string, we can use the keyword not in
+txt = "The best things in life are free!"
+print("expensive" not in txt)
+
+with if,
+txt = "The best things in life are free!"
+if "expensive" not in txt:
+  print("Yes, 'expensive' is NOT present.")
+-------------------------------------------------------------------------------
+SLICING STRINGS:
+
+You can return a range of characters by using the slice syntax
+Specify the start index and the end index, separated by a colon, to return a part of the string
+b = "Hello, World!"
+print(b[2:5])
+-------------------------------------------------------------------------------
+By leaving out the start index, the range will start at the first character
+b = "Hello, World!"
+print(b[:5])
+-------------------------------------------------------------------------------
+By leaving out the end index, the range will go to the end
+b = "Hello, World!"
+print(b[2:])
+-------------------------------------------------------------------------------
+Use negative indexes to start the slice from the end of the string
+b = "Hello, World!"
+print(b[-5:-2])
+-------------------------------------------------------------------------------
+PYTHON - MODIFY STRINGS
+
+Python has a set of built-in methods that you can use on strings.
+
+The upper() method returns the string in upper case
+a = "Hello, World!"
+print(a.upper())
+-------------------------------------------------------------------------------
+The lower() method returns the string in lower case
+a = "Hello, World!"
+print(a.lower())
+-------------------------------------------------------------------------------
+Whitespace is the space before and/or after the actual text, and very often you want to remove this space.
+a = " Hello, World! "
+print(a.strip()) # returns "Hello, World!"
+-------------------------------------------------------------------------------
+The replace() method replaces a string with another string
+a = "Hello, World!"
+print(a.replace("H", "J"))
+-------------------------------------------------------------------------------
+The split() method splits the string into substrings if it finds instances of the separator
+a = "Hello, World!"
+print(a.split(",")) # returns ['Hello', ' World!']
+-------------------------------------------------------------------------------
+PYTHON - FORMAT - STRINGS
+
+In python, we cannot combine strings and numbers like this
+age = 36
+txt = "My name is John, I am " + age
+print(txt)
+-------------------------------------------------------------------------------
+But we can combine strings and numbers by using the format() method!
+The format() method takes the passed arguments, formats them, and places them in the string where the placeholders {} are:
+Use the format() method to insert numbers into strings:
+age = 36
+txt = "My name is John, and I am {}"
+print(txt.format(age))
+
+The format() method takes unlimited number of arguments, and are placed into the respective placeholders:
+quantity = 3
+itemno = 567
+price = 49.95
+myorder = "I want {} pieces of item {} for {} dollars."
+print(myorder.format(quantity, itemno, price))
+
+You can use index numbers {0} to be sure the arguments are placed in the correct placeholders:
+quantity = 3
+itemno = 567
+price = 49.95
+myorder = "I want to pay {2} dollars for {0} pieces of item {1}."
+print(myorder.format(quantity, itemno, price))
+-------------------------------------------------------------------------------
+PYTHON - ESCAPE CHARACTERS
+
+To insert characters that are illegal in a string, use an escape character.
+An escape character is a backslash \ followed by the character you want to insert.
+An example of an illegal character is a double quote inside a string that is surrounded by double quotes:
+
+txt = "We are the so-called "Vikings" from the north."
+
+this will leads to error
+
+txt = "We are the so-called \"Vikings\" from the north."
+-------------------------------------------------------------------------------
+
+ACCESS DICTIONARY ITEMS
+
+Get the value of the "model" key:
+
+thisdict = {
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964
+}
+x = thisdict["model"]
+x = thisdict.get("model")
+-------------------------------------------------------------------------------
+Get a list of the keys:
+
+x = thisdict.keys()
+-------------------------------------------------------------------------------
+
+Add a new item to the original dictionary, and see that the keys list gets updated as well:
+
+car = {
+"brand": "Ford",
+"model": "Mustang",
+"year": 1964
+}
+x = car.keys()
+print(x) #before the change
+car["color"] = "white"
+print(x) #after the change
+-------------------------------------------------------------------------------
+Get a list of the values:
+
+car = {
+"brand": "Ford",
+"model": "Mustang",
+"year": 1964
+}
+x = car.values()
+print(x) #before the change
+car["year"] = 2020
+print(x) #after the change
+-------------------------------------------------------------------------------
+Add a new item to the original dictionary, and see that the values list gets updated as well:
+
+car = {
+"brand": "Ford",
+"model": "Mustang",
+"year": 1964
+}
+
+x = car.values()
+print(x) #before the change
+car["color"] = "red"
+print(x) #after the change
+-------------------------------------------------------------------------------
+The items() method will return each item in a dictionary, as tuples in a list.
+
+x = thisdict.items()
+-------------------------------------------------------------------------------
+Make a change in the original dictionary, and see that the items list gets updated as well:
+
+car = {
+"brand": "Ford",
+"model": "Mustang",
+"year": 1964
+}
+
+x = car.items()
+print(x) #before the change
+car["year"] = 2020
+print(x) #after the change
+-------------------------------------------------------------------------------
+Add a new item to the original dictionary, and see that the items list gets updated as well:
+
+car = {
+"brand": "Ford",
+"model": "Mustang",
+"year": 1964
+}
+
+x = car.items()
+print(x) #before the change
+car["color"] = "red"
+print(x) #after the change
+-------------------------------------------------------------------------------
+Check if "model" is present in the dictionary:
+
+thisdict = {
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964
+}
+if "model" in thisdict:
+  print("Yes, 'model' is one of the keys in the thisdict dictionary")
+
+
+Change the "year" to 2018:
+
+thisdict = {
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964
+}
+thisdict["year"] = 2018
+
+-------------------------------------------------------------------------------
+Update the "year" of the car by using the update() method:
+
+thisdict = {
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964
+}
+thisdict.update({"year": 2020})
+
+Adding an item to the dictionary is done by using a new index key and assigning a value to it:
+thisdict = {
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964
+}
+thisdict["color"] = "red"
+print(thisdict)
+
+-------------------------------------------------------------------------------
+The update() method will update the dictionary with the items from a given argument. If the item does not exist, the item will be added.
+
+thisdict = {
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964
+}
+thisdict.update({"color": "red"})
+-------------------------------------------------------------------------------
+
+The pop() method removes the item with the specified key name:
+
+thisdict = {
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964
+}
+thisdict.pop("model")
+print(thisdict)
+-------------------------------------------------------------------------------
+The popitem() method removes the last inserted item (in versions before 3.7, a random item is removed instead):
+
+thisdict = {
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964
+}
+thisdict.popitem()
+print(thisdict)
+-------------------------------------------------------------------------------
+The del keyword removes the item with the specified key name:
+
+thisdict = {
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964
+}
+del thisdict["model"]
+print(thisdict)
+-------------------------------------------------------------------------------
+The del keyword can also delete the dictionary completely:
+
+thisdict = {
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964
+}
+del thisdict
+print(thisdict) #this will cause an error because "thisdict" no longer exists.
+-------------------------------------------------------------------------------
+The clear() method empties the dictionary:
+
+thisdict = {
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964
+}
+thisdict.clear()
+print(thisdict)
+-------------------------------------------------------------------------------
+Python - Loop Dictionaries
+When looping through a dictionary, the return value are the keys of the dictionary, but there are methods to return the values as well.
+
+Print all key names in the dictionary, one by one:
+for x in thisdict:
+  print(x)
+-------------------------------------------------------------------------------
+Print all values in the dictionary, one by one:
+
+for x in thisdict:
+  print(thisdict[x])
+-------------------------------------------------------------------------------
+You can also use the values() method to return values of a dictionary:
+
+for x in thisdict.values():
+  print(x)
+-------------------------------------------------------------------------------
+You can use the keys() method to return the keys of a dictionary:
+
+for x in thisdict.keys():
+  print(x)
+-------------------------------------------------------------------------------
+Loop through both keys and values, by using the items() method:
+
+for x, y in thisdict.items():
+  print(x, y)
+-------------------------------------------------------------------------------
+Python - Copy Dictionaries
+You cannot copy a dictionary simply by typing dict2 = dict1, because: dict2 will only be a reference to dict1, and changes made in dict1 will automatically also be made in dict2.
+
+There are ways to make a copy, one way is to use the built-in Dictionary method copy().
+Make a copy of a dictionary with the copy() method:
+
+thisdict = {
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964
+}
+mydict = thisdict.copy()
+print(mydict)
+-------------------------------------------------------------------------------
+Another way to make a copy is to use the built-in function dict().
+
+thisdict = {
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964
+}
+mydict = dict(thisdict)
+print(mydict)
+-------------------------------------------------------------------------------
+Nested Dictionaries
+A dictionary can contain dictionaries, this is called nested dictionaries.
+
+Create a dictionary that contain three dictionaries:
+myfamily = {
+  "child1" : {
+    "name" : "Emil",
+    "year" : 2004
+  },
+  "child2" : {
+    "name" : "Tobias",
+    "year" : 2007
+  },
+  "child3" : {
+    "name" : "Linus",
+    "year" : 2011
+  }
+}
+-------------------------------------------------------------------------------
+Create three dictionaries, then create one dictionary that will contain the other three dictionaries:
+child1 = {
+  "name" : "Emil",
+  "year" : 2004
+}
+child2 = {
+  "name" : "Tobias",
+  "year" : 2007
+}
+child3 = {
+  "name" : "Linus",
+  "year" : 2011
+}
+
+myfamily = {
+  "child1" : child1,
+  "child2" : child2,
+  "child3" : child3
+}
+
+print(myfamily)
+{
+   "child1":{
+      "name":"Emil",
+      "year":2004
+   },
+   "child2":{
+      "name":"Tobias",
+      "year":2007
+   },
+   "child3":{
+      "name":"Linus",
+      "year":2011
+   }
+}
+-------------------------------------------------------------------------------
+Python If ... Else
+
+An "if statement" is written by using the if keyword.
+
+a = 33
+b = 200
+if b > a:
+  print("b is greater than a")
+-------------------------------------------------------------------------------
+The elif keyword is pythons way of saying "if the previous conditions were not true, then try this condition".
+
+a = 33
+b = 33
+if b > a:
+  print("b is greater than a")
+elif a == b:
+  print("a and b are equal")
+-------------------------------------------------------------------------------
+The else keyword catches anything which isn't caught by the preceding conditions.
+
+a = 200
+b = 33
+if b > a:
+  print("b is greater than a")
+elif a == b:
+  print("a and b are equal")
+else:
+  print("a is greater than b")
+
+a = 200
+b = 33
+if b > a:
+  print("b is greater than a")
+else:
+  print("b is not greater than a")
+-------------------------------------------------------------------------------
+If you have only one statement to execute, you can put it on the same line as the if statement.
+
+if a > b: print("a is greater than b")
+-------------------------------------------------------------------------------
+Short Hand If ... Else
+
+a = 2
+b = 330
+print("A") if a > b else print("B")
+-------------------------------------------------------------------------------
+We can also have multiple else statements on the same line, This technique is known as Ternary Operators, or Conditional Expressions.
+One line if else statement, with 3 conditions:
+
+print("A") if a > b else print("=") if a == b else print("B")
+-------------------------------------------------------------------------------
+The and keyword is a logical operator, and is used to combine conditional statements:
+
+a = 200
+b = 33
+c = 500
+if a > b and c > a:
+  print("Both conditions are True")
+-------------------------------------------------------------------------------
+The or keyword is a logical operator, and is used to combine conditional statements:
+
+a = 200
+b = 33
+c = 500
+if a > b or a > c:
+  print("At least one of the conditions is True")
+-------------------------------------------------------------------------------
+You can have if statements inside if statements, this is called nested if statements.
+
+x = 41
+
+if x > 10:
+  print("Above ten,")
+  if x > 20:
+    print("and also above 20!")
+  else:
+    print("but not above 20.")
+-------------------------------------------------------------------------------
+if statements cannot be empty, but if you for some reason have an if statement with no content, put in the pass statement to avoid getting an error.
+
+a = 33
+b = 200
+
+if b > a:
+  pass
+-------------------------------------------------------------------------------
+The while Loop
+With the while loop we can execute a set of statements as long as a condition is true.
+Print i as long as i is less than 6:
+
+i = 1
+while i < 6:
+  print(i)
+  i += 1
+-------------------------------------------------------------------------------
+With the break statement we can stop the loop even if the while condition is true:
+
+Exit the loop when i is 3:
+
+i = 1
+while i < 6:
+  print(i)
+  if i == 3:
+    break
+  i += 1
+-------------------------------------------------------------------------------
+With the continue statement we can stop the current iteration, and continue with the next:
+
+Continue to the next iteration if i is 3:
+
+i = 0
+while i < 6:
+  i += 1
+  if i == 3:
+    continue
+  print(i)
+-------------------------------------------------------------------------------
+With the else statement we can run a block of code once when the condition no longer is true:
+
+Print a message once the condition is false:
+
+i = 1
+while i < 6:
+  print(i)
+  i += 1
+else:
+  print("i is no longer less than 6")
+-------------------------------------------------------------------------------
+Python For Loops
+
+With the for loop we can execute a set of statements, once for each item in a list, tuple, set etc.
+
+Print each fruit in a fruit list:
+
+fruits = ["apple", "banana", "cherry"]
+for x in fruits:
+  print(x)
+-------------------------------------------------------------------------------
+Even strings are iterable objects, they contain a sequence of characters:
+Loop through the letters in the word "banana":
+
+for x in "banana":
+  print(x)
+-------------------------------------------------------------------------------
+With the break statement we can stop the loop before it has looped through all the items:
+Exit the loop when x is "banana":
+
+fruits = ["apple", "banana", "cherry"]
+for x in fruits:
+  print(x)
+  if x == "banana":
+    break
+-------------------------------------------------------------------------------
+Exit the loop when x is "banana", but this time the break comes before the print:
+
+fruits = ["apple", "banana", "cherry"]
+for x in fruits:
+  if x == "banana":
+    break
+  print(x)
+-------------------------------------------------------------------------------
+With the continue statement we can stop the current iteration of the loop, and continue with the next:
+Do not print banana:
+
+fruits = ["apple", "banana", "cherry"]
+for x in fruits:
+  if x == "banana":
+    continue
+  print(x)
+-------------------------------------------------------------------------------
+The range() Function
+To loop through a set of code a specified number of times, we can use the range() function,
+The range() function returns a sequence of numbers, starting from 0 by default, and increments by 1 (by default), and ends at a specified number.
+
+Using the range() function:
+
+for x in range(6):
+  print(x)
+
+Note that range(6) is not the values of 0 to 6, but the values 0 to 5.
+The range() function defaults to 0 as a starting value, however it is possible to specify the starting value by adding a parameter: range(2, 6), which means values from 2 to 6 (but not including 6):
+
+for x in range(2, 6):
+  print(x)
+-------------------------------------------------------------------------------
+The range() function defaults to increment the sequence by 1, however it is possible to specify the increment value by adding a third parameter: range(2, 30, 3):
+
+for x in range(2, 30, 3):
+  print(x)
+-------------------------------------------------------------------------------
+Else in For Loop
+The else keyword in a for loop specifies a block of code to be executed when the loop is finished:
+
+Print all numbers from 0 to 5, and print a message when the loop has ended:
+
+for x in range(6):
+  print(x)
+else:
+  print("Finally finished!")
+-------------------------------------------------------------------------------
+Nested Loops
+A nested loop is a loop inside a loop.
+The "inner loop" will be executed one time for each iteration of the "outer loop":
+
+Print each adjective for every fruit:
+
+adj = ["red", "big", "tasty"]
+fruits = ["apple", "banana", "cherry"]
+
+for x in adj:
+  for y in fruits:
+    print(x, y)
+-------------------------------------------------------------------------------
+The pass Statement
+for loops cannot be empty, but if you for some reason have a for loop with no content, put in the pass statement to avoid getting an error.   
+
+for x in [0, 1, 2]:
+  pass
+-------------------------------------------------------------------------------
+PYTHON FUNCTIONS
+
+Creating a Function
+In Python a function is defined using the def keyword:
+
+def my_function():
+  print("Hello from a function")
+-------------------------------------------------------------------------------
+Calling a Function
+To call a function, use the function name followed by parenthesis:
+
+def my_function():
+  print("Hello from a function")
+
+my_function()
+-------------------------------------------------------------------------------
+Arguments
+The following example has a function with one argument (fname). When the function is called, we pass along a first name, which is used inside the function to print the full name:
+
+def my_function(fname):
+  print(fname + " Refsnes")
+
+my_function("Emil")
+my_function("Tobias")
+my_function("Linus")
+-------------------------------------------------------------------------------
+Number of Arguments
+By default, a function must be called with the correct number of arguments. Meaning that if your function expects 2 arguments, you have to call the function with 2 arguments, not more, and not less.
+
+def my_function(fname, lname):
+  print(fname + " " + lname)
+
+my_function("Emil", "Refsnes")
+-------------------------------------------------------------------------------
+Arbitrary Arguments, *args
+If you do not know how many arguments that will be passed into your function, add a * before the parameter name in the function definition.
+This way the function will receive a tuple of arguments, and can access the items accordingly:
+If the number of arguments is unknown, add a * before the parameter name:
+
+def my_function(*kids):
+  print("The youngest child is " + kids[2])
+
+my_function("Emil", "Tobias", "Linus")
+-------------------------------------------------------------------------------
+Keyword Arguments
+You can also send arguments with the key = value syntax.
+This way the order of the arguments does not matter.
+
+def my_function(child3, child2, child1):
+  print("The youngest child is " + child3)
+
+my_function(child1 = "Emil", child2 = "Tobias", child3 = "Linus")
+-------------------------------------------------------------------------------
+Arbitrary Keyword Arguments, **kwargs
+If you do not know how many keyword arguments that will be passed into your function, add two asterisk: ** before the parameter name in the function definition.
+This way the function will receive a dictionary of arguments, and can access the items accordingly:
+If the number of keyword arguments is unknown, add a double ** before the parameter name:
+
+def my_function(**kid):
+  print("His last name is " + kid["lname"])
+
+my_function(fname = "Tobias", lname = "Refsnes")
+-------------------------------------------------------------------------------
+Default Parameter Value
+The following example shows how to use a default parameter value.
+If we call the function without argument, it uses the default value:
+
+def my_function(country = "Norway"):
+  print("I am from " + country)
+
+my_function("Sweden")
+my_function("India")
+my_function()
+my_function("Brazil")
+-------------------------------------------------------------------------------
+Passing a List as an Argument
+You can send any data types of argument to a function (string, number, list, dictionary etc.), and it will be treated as the same data type inside the function.
+E.g. if you send a List as an argument, it will still be a List when it reaches the function:
+
+def my_function(food):
+  for x in food:
+    print(x)
+
+fruits = ["apple", "banana", "cherry"]
+
+my_function(fruits)
+-------------------------------------------------------------------------------
+Return Values
+To let a function return a value, use the return statement:
+
+def my_function(x):
+  return 5 * x
+
+print(my_function(3))
+print(my_function(5))
+print(my_function(9))
+-------------------------------------------------------------------------------
+The pass Statement
+function definitions cannot be empty, but if you for some reason have a function definition with no content, put in the pass statement to avoid getting an error.
+
+def myfunction():
+  pass
+-------------------------------------------------------------------------------
+PYTHON LAMBDA
+
+Add 10 to argument a, and return the result:
+x = lambda a : a + 10
+print(x(5))
+-------------------------------------------------------------------------------
+Multiply argument a with argument b and return the result:
+-------------------------------------------------------------------------------
+x = lambda a, b : a * b
+print(x(5, 6))
+-------------------------------------------------------------------------------
+Summarize argument a, b, and c and return the result:
+x = lambda a, b, c : a + b + c
+print(x(5, 6, 2))
+
+Why Use Lambda Functions?
+The power of lambda is better shown when you use them as an anonymous function inside another function.
+Say you have a function definition that takes one argument, and that argument will be multiplied with an unknown number:
+Use that function definition to make a function that always doubles the number you send in:
+
+def myfunc(n):
+  return lambda a : a * n
+
+mydoubler = myfunc(2)
+
+print(mydoubler(11))
+-------------------------------------------------------------------------------
+for tripler,
+
+def myfunc(n):
+  return lambda a : a * n
+
+mytripler = myfunc(3)
+
+print(mytripler(11))
+-------------------------------------------------------------------------------
+function with both,
+
+def myfunc(n):
+  return lambda a : a * n
+
+mydoubler = myfunc(3)
+mytripler = myfunc(3)
+
+print(mydoubler(11))
+print(mytripler(11))
+
+
+
+
