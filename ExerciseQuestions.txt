@@ -52,6 +52,172 @@ Sort the given mixed list of integers and strings:
 
 12. Loop through the letters in the word "banana"
 
+Write a Python program to add an item in a tuple.
+Input:
+tuplex = (4, 6, 2, 8, 3, 1) 
+Output:
+tuplex = (4, 6, 2, 8, 3, 1, 9)
+
+Write a Python program to conctenate with first 4 elements of same given tuple.
+Input:
+tuplex = (4, 6, 2, 8, 3, 1) 
+Output:
+tuplex = (4, 6, 2, 8, 3, 1, 4, 6, 2, 8)
+
+Write a Python program to get the 4th element and 4th element from last of a tuple.
+Input:
+tuplex = ("b", "t", "r", "e", "e", "s", "y", "s", "t", "e", "m", "s")
+Output:
+e
+t
+
+Write a Python program to find the length of a tuple.
+Input:
+tuplex = tuple("btreesystems")
+Output:
+12
+
+Write a Python program to remove an empty tuple(s) from a list of tuples.
+Input:
+L = [(), (), ('',), ('a', 'b'), ('a', 'b', 'c'), ('d')]
+Output:
+[('',), ('a', 'b'), ('a', 'b', 'c'), 'd'] 
+
+Write a Python function to convert a tuple of string values to a tuple of integer values.
+Input:
+(('333', '33'), ('1416', '55'))
+Output:
+((333, 33), (1416, 55))
+
+Write a Python program to iterate over dictionaries using for loops.
+Input:
+d = {'x': 10, 'y': 20, 'z': 30} 
+Output:
+x -> 10
+y -> 20
+z -> 30
+
+Write a Python script to concatenate following dictionaries to create a new one.
+Input:
+dic1={1:10, 2:20}
+dic2={3:30, 4:40}
+dic3={5:50,6:60}
+Output: 
+{1: 10, 2: 20, 3: 30, 4: 40, 5: 50, 6: 60}
+
+Write a Python program to check whether a given key already exists in a dictionary.
+Input:
+d = {1: 10, 2: 20, 3: 30, 4: 40, 5: 50, 6: 60}
+Output:
+check whether key 5 & 9 are present in above dictionary
+
+Write a Python program to multiply all the items in a dictionary.
+Input:
+my_dict = {'data1':100,'data2':-54,'data3':247}
+Output:
+-1333800
+
+Write a Python program to sort a list values in a dictionary, use sorted() function to sort.
+Input:
+num = {'n1': [2, 3, 1], 'n2': [5, 1, 2], 'n3': [3, 2, 4]}
+Output:
+{'n1': [1, 2, 3], 'n2': [1, 2, 5], 'n3': [2, 3, 4]}
+
+Write a Python function to convert a given list of lists to a dictionary.
+Original list of lists:
+[[1, 'Jean Castro', 'V'], [2, 'Lula Powell', 'V'], [3, 'Brian Howell', 'VI'], [4, 'Lynne Foster', 'VI'], [5, 'Zachary Simon', 'VII']]
+Convert the said list of lists to a dictionary:
+{1: ['Jean Castro', 'V'], 2: ['Lula Powell', 'V'], 3: ['Brian Howell', 'VI'], 4: ['Lynne Foster', 'VI'], 5: ['Zachary Simon', 'VII']}
+
+Write a Python function to update the list values in the said dictionary. For Maths list marks should be increased by 1 & for Physics list decrease by 2
+Input:
+dictionary = { 
+               'Math' : [88, 89, 90], 
+               'Physics' : [92, 94, 89],
+               'Chemistry' : [90, 87, 93]
+             }
+output:
+dictionary = { 
+               'Math' : [89, 90, 91], 
+               'Physics' : [90, 92, 87],
+               'Chemistry' : [90, 87, 93]
+             }
+
+Write a Python function to find the Max of three numbers.
+Input:
+3, 6, -5
+Output:
+6
+
+Write a Python function to multiply all the numbers in a list.
+Input:
+8, 2, 3, -1, 7
+Output:
+-336 
+
+Write a Python function to calculate the factorial of a number (a non-negative integer). The function accepts the number as an argument.
+Factorial of 5 is,
+5*4*3*2*1=120
+
+Write a Python function that accepts a string and calculate the number of upper case letters and lower case letters.
+Input:
+s='Welcome to Btree World'
+Output:
+No. of Upper case characters :  3
+No. of Lower case Characters :  16
+
+Write a Python program to construct the following pattern, using a nested for loop. Use end parameter in print function.
+
+* 
+* * 
+* * * 
+* * * *
+
+Write a Python program to construct the following pattern, using a nested for loop.
+
+* 
+* * 
+* * * 
+* * * * 
+* * * * * 
+* * * * 
+* * * 
+* * 
+* 
+
+Write a Python program which iterates the integers from 1 to 50. For multiples of three print "Tik" instead of the number and for the multiples of five print "Toc". For numbers which are multiples of both three and five print "TikToc".
+
+TikToc
+1
+2
+Tik
+4
+Toc
+Tik
+7
+.
+.
+.
+
+Write a Python program to create a lambda function that adds 15 to a given number passed in as an argument
+
+Write a Python program to sort a list of tuples values using Lambda function. Use sort function.
+Input:
+[('English', 88), ('Science', 90), ('Maths', 97), ('Social sciences', 82)]
+Output:
+[('Social sciences', 82), ('English', 88), ('Science', 90), ('Maths', 97)]
+
+Write a Python program to sort a list of dictionaries using Lambda. Sort by color, use sorted function.
+Input:
+[{'make': 'Nokia', 'model': 216, 'color': 'Black'}, {'make': 'Mi Max', 'model': '2', 'color': 'Gold'}, {'make': 'Samsung', 'model': 7, 'color': 'Blue'}]
+Output:
+[{'make': 'Nokia', 'model': 216, 'color': 'Black'}, {'make': 'Samsung', 'model': 7, 'color': 'Blue'}, {'make': 'Mi Max', 'model': '2', 'color': 'Gold'}]
+
+
+
+
+
+
 
 
 

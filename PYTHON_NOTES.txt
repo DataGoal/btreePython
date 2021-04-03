@@ -739,6 +739,14 @@ def myfunction():
 PYTHON LAMBDA
 
 Add 10 to argument a, and return the result:
+
+typical function,
+def addTen (n):
+    num = (n+10)
+    return  num
+print(addTen(5))
+
+lambda function,
 x = lambda a : a + 10
 print(x(5))
 -------------------------------------------------------------------------------
@@ -782,7 +790,706 @@ mytripler = myfunc(3)
 
 print(mydoubler(11))
 print(mytripler(11))
+-------------------------------------------------------------------------------
+PYTHON SCOPE
+
+Local Scope
+A variable created inside a function is available inside that function:
+
+def myfunc():
+  x = 300
+  print(x)
+
+myfunc()
+-------------------------------------------------------------------------------
+The local variable can be accessed from a function within the function:
+
+def myfunc():
+  x = 300
+  def myinnerfunc():
+    print(x)
+  myinnerfunc()
+
+myfunc()
+-------------------------------------------------------------------------------
+A variable created outside of a function is global and can be used by anyone:
+
+x = 300
+
+def myfunc():
+  print(x)
+
+myfunc()
+
+print(x)
+-------------------------------------------------------------------------------
+The function will print the local x, and then the code will print the global x:
+
+x = 300
+
+def myfunc():
+  x = 200
+  print(x)
+
+myfunc()
+
+print(x)
+-------------------------------------------------------------------------------
+If you use the global keyword, the variable belongs to the global scope:
+
+def myfunc():
+  global x
+  x = 300
+
+myfunc()
+
+print(x)
+-------------------------------------------------------------------------------
+To change the value of a global variable inside a function, refer to the variable by using the global keyword:
+
+x = 300
+
+def myfunc():
+  global x
+  x = 200
+
+myfunc()
+
+print(x)
+-------------------------------------------------------------------------------
+Use end keyword in print function.
+Usage of end, by default python’s print() function ends with a newline. Python’s print() function comes with a parameter called 'end'. By default, the value of this parameter is '\n', i.e. the new line character. You can modify a print statement with any character/string using this parameter.
+
+print("Welcome to" , end = ' ') 
+print("BtreeSystems", end = ' ')
+
+above prints,
+
+Welcome to BtreeSystems
+
+instead of,
+
+Welcome to
+BtreeSystems
+
+-------------------------------------------------------------------------------
+PYTHON MODULES
+
+To create a module just save the code you want in a file with the file extension .py
+Save this code in a file named mymodule.py
+
+def greeting(name):
+  print("Hello, " + name)
+-------------------------------------------------------------------------------
+Now we can use the module we just created, by using the import statement:
+
+import mymodule
+mymodule.greeting("Jonathan")
+-------------------------------------------------------------------------------
+The module can contain functions, as already described, but also variables of all types (arrays, dictionaries, objects etc):
+Save this code in the file mymodule.py
+
+person1 = {
+  "name": "John",
+  "age": 36,
+  "country": "Norway"
+}
+-------------------------------------------------------------------------------
+Import the module named mymodule, and access the person1 dictionary:
+
+import mymodule
+a = mymodule.person1["age"]
+print(a)
+-------------------------------------------------------------------------------
+You can create an alias when you import a module, by using the as keyword:
+Create an alias for mymodule called mx:
+
+import mymodule as mx
+a = mx.person1["age"]
+print(a)
+-------------------------------------------------------------------------------
+Built-in Modules
+There are several built-in modules in Python, which you can import whenever you like.
+Import and use the platform module:
+
+import platform
+x = platform.system()
+print(x)
+-------------------------------------------------------------------------------
+Import From Module
+You can choose to import only parts from a module, by using the from keyword.
+The module named mymodule has one function and one dictionary:
+
+def greeting(name):
+  print("Hello, " + name)
+
+person1 = {
+  "name": "John",
+  "age": 36,
+  "country": "Norway"
+}
+-------------------------------------------------------------------------------
+Import only the person1 dictionary from the module:
+
+from mymodule import person1
+print (person1["age"])
+-------------------------------------------------------------------------------
+PYTHON DATETIME
+Import the datetime module and display the current date:
+
+import datetime
+x = datetime.datetime.now()
+print(x)
+2021-04-03 10:04:08.445075
+-------------------------------------------------------------------------------
+Return the year and name of weekday:
+The datetime object has a method for formatting date objects into readable strings.
+The method is called strftime(), and takes one parameter, format, to specify the format of the returned string:
+
+import datetime
+x = datetime.datetime.now()
+print(x.year)
+print(x.strftime("%A"))
+print(x.strftime("%B"))
+-------------------------------------------------------------------------------
+Create a date object:
+
+import datetime
+x = datetime.datetime(2020, 5, 17)
+print(x)
+-------------------------------------------------------------------------------
+A reference of all the legal format codes:
++-----------+-------------------------------------------------------------+--------------------------+
+| Directive |                         Description                         |         Example          |
++-----------+-------------------------------------------------------------+--------------------------+
+| %a        | Weekday, short version                                      | Wed                      |
+| %A        | Weekday, full version                                       | Wednesday                |
+| %w        | Weekday as a number 0-6, 0 is Sunday                        | 3                        |
+| %d        | Day of month 01-31                                          | 31                       |
+| %b        | Month name, short version                                   | Dec                      |
+| %B        | Month name, full version                                    | December                 |
+| %m        | Month as a number 01-12                                     | 12                       |
+| %y        | Year, short version, without century                        | 18                       |
+| %Y        | Year, full version                                          | 2018                     |
+| %H        | Hour 00-23                                                  | 17                       |
+| %I        | Hour 00-12                                                  | 5                        |
+| %p        | AM/PM                                                       | PM                       |
+| %M        | Minute 00-59                                                | 41                       |
+| %S        | Second 00-59                                                | 8                        |
+| %f        | Microsecond 000000-999999                                   | 548513                   |
+| %z        | UTC offset                                                  | 100                      |
+| %Z        | Timezone                                                    | CST                      |
+| %j        | Day number of year 001-366                                  | 365                      |
+| %U        | Week number of year, Sunday as the first day of week, 00-53 | 52                       |
+| %W        | Week number of year, Monday as the first day of week, 00-53 | 52                       |
+| %c        | Local version of date and time                              | Mon Dec 31 17:41:00 2018 |
+| %x        | Local version of date                                       | 12/31/18                 |
+| %X        | Local version of time                                       | 17:41:00                 |
+| %%        | A % character                                               | %                        |
+| %G        | ISO 8601 year                                               | 2018                     |
+| %u        | ISO 8601 weekday (1-7)                                      | 1                        |
+| %V        | ISO 8601 weeknumber (01-53)                                 | 1                        |
++-----------+-------------------------------------------------------------+--------------------------+
+-------------------------------------------------------------------------------
+PYTHON MATH
+To use it, you must import the math module:
+
+import math
+
+The min() and max() functions can be used to find the lowest or highest value in an iterable:
+
+x = min(5, 10, 25)
+y = max(5, 10, 25)
+print(x)
+print(y)
+-------------------------------------------------------------------------------
+The abs() function returns the absolute (positive) value of the specified number:
+x = abs(-7.25)
+
+print(x)
+-------------------------------------------------------------------------------
+Return the value of 4 to the power of 3 (same as 4 * 4 * 4):
+
+x = pow(4, 3)
+
+print(x)
+-------------------------------------------------------------------------------
+The math.sqrt() method for example, returns the square root of a number:
+
+import math
+
+x = math.sqrt(64)
+
+print(x)
+-------------------------------------------------------------------------------
+The math.ceil() method rounds a number upwards to its nearest integer, and the math.floor() method rounds a number downwards to its nearest integer, and returns the result:
+
+import math
+x = math.ceil(1.4)
+y = math.floor(1.4)
+print(x) # returns 2
+print(y) # returns 1
+-------------------------------------------------------------------------------
+The math.pi constant, returns the value of PI (3.14...)
+
+import math
+
+x = math.pi
+
+print(x)
+-------------------------------------------------------------------------------
+Math Methods:
++------------------+--------------------------------------------------------------------------------------------------------------+
+|      Method      |                                                 Description                                                  |
++------------------+--------------------------------------------------------------------------------------------------------------+
+| math.acos()      | Returns the arc cosine of a number                                                                           |
+| math.acosh()     | Returns the inverse hyperbolic cosine of a number                                                            |
+| math.asin()      | Returns the arc sine of a number                                                                             |
+| math.asinh()     | Returns the inverse hyperbolic sine of a number                                                              |
+| math.atan()      | Returns the arc tangent of a number in radians                                                               |
+| math.atan2()     | Returns the arc tangent of y/x in radians                                                                    |
+| math.atanh()     | Returns the inverse hyperbolic tangent of a number                                                           |
+| math.ceil()      | Rounds a number up to the nearest integer                                                                    |
+| math.comb()      | Returns the number of ways to choose k items from n items without repetition and order                       |
+| math.copysign()  | Returns a float consisting of the value of the first parameter and the sign of the second parameter          |
+| math.cos()       | Returns the cosine of a number                                                                               |
+| math.cosh()      | Returns the hyperbolic cosine of a number                                                                    |
+| math.degrees()   | Converts an angle from radians to degrees                                                                    |
+| math.dist()      | Returns the Euclidean distance between two points (p and q), where p and q are the coordinates of that point |
+| math.erf()       | Returns the error function of a number                                                                       |
+| math.erfc()      | Returns the complementary error function of a number                                                         |
+| math.exp()       | Returns E raised to the power of x                                                                           |
+| math.expm1()     | Returns Ex - 1                                                                                               |
+| math.fabs()      | Returns the absolute value of a number                                                                       |
+| math.factorial() | Returns the factorial of a number                                                                            |
+| math.floor()     | Rounds a number down to the nearest integer                                                                  |
+| math.fmod()      | Returns the remainder of x/y                                                                                 |
+| math.frexp()     | Returns the mantissa and the exponent, of a specified number                                                 |
+| math.fsum()      | Returns the sum of all items in any iterable (tuples, arrays, lists, etc.)                                   |
+| math.gamma()     | Returns the gamma function at x                                                                              |
+| math.gcd()       | Returns the greatest common divisor of two integers                                                          |
+| math.hypot()     | Returns the Euclidean norm                                                                                   |
+| math.isclose()   | Checks whether two values are close to each other, or not                                                    |
+| math.isfinite()  | Checks whether a number is finite or not                                                                     |
+| math.isinf()     | Checks whether a number is infinite or not                                                                   |
+| math.isnan()     | Checks whether a value is NaN (not a number) or not                                                          |
+| math.isqrt()     | Rounds a square root number downwards to the nearest integer                                                 |
+| math.ldexp()     | Returns the inverse of math.frexp() which is x * (2**i) of the given numbers x and i                         |
+| math.lgamma()    | Returns the log gamma value of x                                                                             |
+| math.log()       | Returns the natural logarithm of a number, or the logarithm of number to base                                |
+| math.log10()     | Returns the base-10 logarithm of x                                                                           |
+| math.log1p()     | Returns the natural logarithm of 1+x                                                                         |
+| math.log2()      | Returns the base-2 logarithm of x                                                                            |
+| math.perm()      | Returns the number of ways to choose k items from n items with order and without repetition                  |
+| math.pow()       | Returns the value of x to the power of y                                                                     |
+| math.prod()      | Returns the product of all the elements in an iterable                                                       |
+| math.radians()   | Converts a degree value into radians                                                                         |
+| math.remainder() | Returns the closest value that can make numerator completely divisible by the denominator                    |
+| math.sin()       | Returns the sine of a number                                                                                 |
+| math.sinh()      | Returns the hyperbolic sine of a number                                                                      |
+| math.sqrt()      | Returns the square root of a number                                                                          |
+| math.tan()       | Returns the tangent of a number                                                                              |
+| math.tanh()      | Returns the hyperbolic tangent of a number                                                                   |
+| math.trunc()     | Returns the truncated integer parts of a number                                                              |
++------------------+--------------------------------------------------------------------------------------------------------------+
+
+Math Constants:
++----------+---------------------------------------------------+
+| Constant |                    Description                    |
++----------+---------------------------------------------------+
+| math.e   | Returns Euler's number (2.7182...)                |
+| math.inf | Returns a floating-point positive infinity        |
+| math.nan | Returns a floating-point NaN (Not a Number) value |
+| math.pi  | Returns PI (3.1415...)                            |
+| math.tau | Returns tau (6.2831...)                           |
++----------+---------------------------------------------------+
+
+PYTHON FILE HANDLING
+
+The key function for working with files in Python is the open() function.
+The open() function takes two parameters; filename, and mode.
+There are four different methods (modes) for opening a file:
+
+"r" - Read - Default value. Opens a file for reading, error if the file does not exist
+"a" - Append - Opens a file for appending, creates the file if it does not exist
+"w" - Write - Opens a file for writing, creates the file if it does not exist
+"x" - Create - Creates the specified file, returns an error if the file exists
+
+In addition you can specify if the file should be handled as binary or text mode
+
+"t" - Text - Default value. Text mode
+"b" - Binary - Binary mode (e.g. images)
+-------------------------------------------------------------------------------
+To open a file for reading it is enough to specify the name of the file:
+
+f = open("demofile.txt")
+The code above is the same as:
+
+f = open("demofile.txt", "rt")
+Because "r" for read, and "t" for text are the default values, you do not need to specify them.
+-------------------------------------------------------------------------------
+demofile.txt
+Hello! Welcome to demofile.txt
+This file is for testing purposes.
+Good Luck!
+
+To open the file, use the built-in open() function.
+
+The open() function returns a file object, which has a read() method for reading the content of the file:
+
+f = open("C:\\Users\\bbhagy905\\Desktop\\BBC\\Python_BTree\\btreePython\\README.md", "r")
+print(f.read())
+-------------------------------------------------------------------------------
+Read Only Parts of the File
+By default the read() method returns the whole text, but you can also specify how many characters you want to return:
+
+Return the 5 first characters of the file:
+
+f = open("demofile.txt", "r")
+print(f.read(5))
+-------------------------------------------------------------------------------
+Read Lines
+You can return one line by using the readline() method:
+
+Read one line of the file:
+
+f = open("demofile.txt", "r")
+print(f.readline())
+
+By calling readline() two times, you can read the two first lines:
+
+Read two lines of the file:
+
+f = open("demofile.txt", "r")
+print(f.readline())
+print(f.readline())
+-------------------------------------------------------------------------------
+By looping through the lines of the file, you can read the whole file, line by line:
+
+Loop through the file line by line:
+
+f = open("C:\\Users\\bbhagy905\\Desktop\\BBC\\Python_BTree\\btreePython\\README.md", "r")
+for x in f:
+  print(x)
+-------------------------------------------------------------------------------
+Close Files
+It is a good practice to always close the file when you are done with it.
+
+Close the file when you are finish with it:
+
+f = open("demofile.txt", "r")
+print(f.readline())
+f.close()  
+-------------------------------------------------------------------------------
+Write to an Existing File
+To write to an existing file, you must add a parameter to the open() function:
+
+"a" - Append - will append to the end of the file
+"w" - Write - will overwrite any existing content
+
+Open the file "demofile2.txt" and append content to the file:
+
+f = open("demofile2.txt", "a")
+f.write("Now the file has more content!")
+f.close()
+
+#open and read the file after the appending:
+f = open("demofile2.txt", "r")
+print(f.read())
+-------------------------------------------------------------------------------
+Open the file "demofile3.txt" and overwrite the content:
+
+f = open("demofile3.txt", "w")
+f.write("Woops! I have deleted the content!")
+f.close()
+
+#open and read the file after the appending:
+f = open("demofile3.txt", "r")
+print(f.read())
+-------------------------------------------------------------------------------
+Using write along with with() function
+
+We can also use write function along with with() function:
+
+# Python code to illustrate with() alongwith write()
+with open("file.txt", "w") as f: 
+    f.write("Hello World!!!") 
+-------------------------------------------------------------------------------
+split() using file handling
+
+We can also split lines using file handling in Python. This splits the variable when space is encountered. You can also split using any characters as we wish. Here is the code:
+
+# Python code to illustrate split() function
+with open("file.text", "r") as file:
+    data = file.readlines()
+    for line in data:
+        word = line.split()
+        print (word)    
+-------------------------------------------------------------------------------
+#to read n no. of lines
+with open("C:\\Users\\bbhagy905\\Desktop\\BBC\\Python_BTree\\btreePython\\README.md") as myfile:
+    firstNlines=myfile.readlines()[0:1]
+    print(firstNlines)       
+-------------------------------------------------------------------------------
+Create a New File
+To create a new file in Python, use the open() method, with one of the following parameters:
+
+"x" - Create - will create a file, returns an error if the file exist
+"a" - Append - will create a file if the specified file does not exist
+"w" - Write - will create a file if the specified file does not exist
+
+Create a file called "myfile.txt":
+
+f = open("myfile.txt", "x")
+-------------------------------------------------------------------------------
+Delete a File
+To delete a file, you must import the OS module, and run its os.remove() function:
+
+Remove the file "demofile.txt":
+
+import os
+os.remove("demofile.txt")
+-------------------------------------------------------------------------------
+Check if File exist:
+To avoid getting an error, you might want to check if the file exists before you try to delete it:
+
+Check if file exists, then delete it:
+
+import os
+if os.path.exists("demofile.txt"):
+  os.remove("demofile.txt")
+else:
+  print("The file does not exist")
+-------------------------------------------------------------------------------
+Delete Folder
+To delete an entire folder, use the os.rmdir() method:
+
+Remove the folder "myfolder":
+
+import os
+os.rmdir("myfolder")  
+
+-------------------------------------------------------------------------------
+
+PYTHON REGEX
+
+Import the re module:
+
+import re
+
+When you have imported the re module, you can start using regular expressions:
+-------------------------------------------------------------------------------
+Search the string to see if it starts with "The" and ends with "Spain":
+
+import re
+
+txt = "The rain in Spain"
+x = re.search("^The.*Spain$", txt)
+
+RegEx Functions
+The re module offers a set of functions that allows us to search a string for a match:
++----------+-------------------------------------------------------------------+
+| Function |                            Description                            |
++----------+-------------------------------------------------------------------+
+| findall  | Returns a list containing all matches                             |
+| search   | Returns a Match object if there is a match anywhere in the string |
+| split    | Returns a list where the string has been split at each match      |
+| sub      | Replaces one or many matches with a string                        |
++----------+-------------------------------------------------------------------+
+
+Metacharacters
+Metacharacters are characters with a special meaning:
+
++-----------+----------------------------------------------------------------------------+---------------+
+| Character |                                Description                                 |    Example    |
++-----------+----------------------------------------------------------------------------+---------------+
+| []        | A set of characters                                                        | "[a-m]"       |
+| \         | Signals a special sequence (can also be used to escape special characters) | "\d"          |
+| .         | Any character (except newline character)                                   | "he..o"       |
+| ^         | Starts with                                                                | "^hello"      |
+| $         | Ends with                                                                  | "world$"      |
+| *         | Zero or more occurrences                                                   | "aix*"        |
+| +         | One or more occurrences                                                    | "aix+"        |
+| {}        | Exactly the specified number of occurrences                                | "al{2}"       |
+| |         | Either or                                                                  | "falls|stays" |
+| ()        | Capture and group                                                          |               |
++-----------+----------------------------------------------------------------------------+---------------+
+
+Special Sequences
+A special sequence is a \ followed by one of the characters in the list below, and has a special meaning:
++-----------+---------------------------------------------------------------------------------------------------------------------------------------------+---------------+--+--+
+| Character | Description                                                                                                                                 | Example       |  |  |
++-----------+---------------------------------------------------------------------------------------------------------------------------------------------+---------------+--+--+
+| \A        | Returns   a match if the specified characters are at the beginning of the string                                                            | "\AThe"       |  |  |
++-----------+---------------------------------------------------------------------------------------------------------------------------------------------+---------------+--+--+
+|           | 	Returns a match where the   specified characters are at the beginning or at the end of a word                                             | r"\bain"      |  |  |
+| \b        |      (the "r" in the beginning is making sure that the string is being   treated as a "raw string")                                         | r"ain\b"      |  |  |
++-----------+---------------------------------------------------------------------------------------------------------------------------------------------+---------------+--+--+
+|           | Returns a match where the   specified characters are present, but NOT at the beginning (or at the end) of   a word                          | r"\Bain"      |  |  |
+| \B        |      (the "r" in the beginning is making sure that the string is being   treated as a "raw string")                                         | r"ain\B"      |  |  |
++-----------+---------------------------------------------------------------------------------------------------------------------------------------------+---------------+--+--+
+| \d        | 	Returns a match where the   string contains digits (numbers from 0-9)                                                                     | "\d"          |  |  |
++-----------+---------------------------------------------------------------------------------------------------------------------------------------------+---------------+--+--+
+| \D        | Returns   a match where the string DOES NOT contain digits                                                                                  | "\D"          |  |  |
++-----------+---------------------------------------------------------------------------------------------------------------------------------------------+---------------+--+--+
+| \s        | Returns   a match where the string contains a white space character                                                                         | "\s"          |  |  |
++-----------+---------------------------------------------------------------------------------------------------------------------------------------------+---------------+--+--+
+| \S        | Returns a   match where the string DOES NOT contain a white space character                                                                 | "\S"          |  |  |
++-----------+---------------------------------------------------------------------------------------------------------------------------------------------+---------------+--+--+
+| \w        | Returns a   match where the string contains any word characters (characters from a to Z,   digits from 0-9, and the underscore _ character) | "\w"          |  |  |
++-----------+---------------------------------------------------------------------------------------------------------------------------------------------+---------------+--+--+
+| \W        | Returns a   match where the string DOES NOT contain any word characters                                                                     | "\W"          |  |  |
++-----------+---------------------------------------------------------------------------------------------------------------------------------------------+---------------+--+--+
+| \z        | Returns a   match if the specified characters are at the end of the string                                                                  | "Spain\Z"     |  |  |
++-----------+---------------------------------------------------------------------------------------------------------------------------------------------+---------------+--+--+
 
 
+Sets
+A set is a set of characters inside a pair of square brackets [] with a special meaning:
++------------+----------------------------------------------------------------------------------------------------------------------+
+|    Set     |                                                     Description                                                      |
++------------+----------------------------------------------------------------------------------------------------------------------+
+| [arn]      | Returns a match where one of the specified characters (a, r, or n) are present                                       |
+| [a-n]      | Returns a match for any lower case character, alphabetically between a and n                                         |
+| [^arn]     | Returns a match for any character EXCEPT a, r, and n                                                                 |
+| [0123]     | Returns a match where any of the specified digits (0, 1, 2, or 3) are present                                        |
+| [0-9]      | Returns a match for any digit between 0 and 9                                                                        |
+| [0-5][0-9] | Returns a match for any two-digit numbers from 00 and 59                                                             |
+| [a-zA-Z]   | Returns a match for any character alphabetically between a and z, lower case OR upper case                           |
+| [+]        | In sets, +, *, ., |, (), $,{} has no special meaning, so [+] means: return a match for any + character in the string |
++------------+----------------------------------------------------------------------------------------------------------------------+
 
+The findall() Function
+The findall() function returns a list containing all matches.
+Print a list of all matches:
 
+import re
+
+txt = "The rain in Spain"
+x = re.findall("ai", txt)
+print(x)
+-------------------------------------------------------------------------------
+The list contains the matches in the order they are found.
+If no matches are found, an empty list is returned:
+
+Return an empty list if no match was found:
+
+import re
+
+txt = "The rain in Spain"
+x = re.findall("Portugal", txt)
+print(x)
+-------------------------------------------------------------------------------
+The search() Function
+The search() function searches the string for a match, and returns a Match object if there is a match.
+
+If there is more than one match, only the first occurrence of the match will be returned:
+
+Search for the first white-space character in the string:
+
+import re
+
+txt = "The rain in Spain"
+x = re.search("\s", txt)
+
+print("The first white-space character is located in position:", x.start())
+-------------------------------------------------------------------------------
+If no matches are found, the value None is returned:
+
+Make a search that returns no match:
+
+import re
+
+txt = "The rain in Spain"
+x = re.search("Portugal", txt)
+print(x)
+-------------------------------------------------------------------------------
+The split() Function
+The split() function returns a list where the string has been split at each match:
+
+Split at each white-space character:
+
+import re
+
+txt = "The rain in Spain"
+x = re.split("\s", txt)
+print(x)
+-------------------------------------------------------------------------------
+You can control the number of occurrences by specifying the maxsplit parameter:
+
+Split the string only at the first occurrence:
+
+import re
+
+txt = "The rain in Spain"
+x = re.split("\s", txt, 1)
+print(x)
+-------------------------------------------------------------------------------
+The sub() Function
+The sub() function replaces the matches with the text of your choice:
+
+Replace every white-space character with the number 9:
+
+import re
+
+txt = "The rain in Spain"
+x = re.sub("\s", "9", txt)
+print(x)
+-------------------------------------------------------------------------------
+You can control the number of replacements by specifying the count parameter:
+
+Replace the first 2 occurrences:
+
+import re
+
+txt = "The rain in Spain"
+x = re.sub("\s", "9", txt, 2)
+print(x)
+-------------------------------------------------------------------------------
+Match Object
+A Match Object is an object containing information about the search and the result.
+
+Note: If there is no match, the value None will be returned, instead of the Match Object.
+
+Do a search that will return a Match Object:
+
+import re
+
+txt = "The rain in Spain"
+x = re.search("ai", txt)
+print(x) #this will print an object
+-------------------------------------------------------------------------------
+The Match object has properties and methods used to retrieve information about the search, and the result:
+
+.span() returns a tuple containing the start-, and end positions of the match.
+.string returns the string passed into the function
+.group() returns the part of the string where there was a match
+
+Print the position (start- and end-position) of the first match occurrence.
+
+The regular expression looks for any words that starts with an upper case "S":
+
+import re
+
+txt = "The rain in Spain"
+x = re.search(r"\bS\w+", txt)
+print(x.span())
+-------------------------------------------------------------------------------
+Print the string passed into the function:
+
+import re
+
+txt = "The rain in Spain"
+x = re.search(r"\bS\w+", txt)
+print(x.string)
+-------------------------------------------------------------------------------
+Print the part of the string where there was a match.
+
+The regular expression looks for first occurence words that starts with an upper case "S":
+
+import re
+
+txt = "The rain in Spain"
+x = re.search(r"\bS\w+", txt)
+print(x.group())
+-------------------------------------------------------------------------------
