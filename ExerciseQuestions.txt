@@ -213,6 +213,168 @@ Input:
 Output:
 [{'make': 'Nokia', 'model': 216, 'color': 'Black'}, {'make': 'Samsung', 'model': 7, 'color': 'Blue'}, {'make': 'Mi Max', 'model': '2', 'color': 'Gold'}]
 
+Write a Python program 
+
+Write a Python script to display the various Date Time formats.
+
+a) Current date and time
+b) Current year
+c) Month of year
+d) Week number of the year
+e) Weekday of the week
+f) Day of year
+g) Day of the month
+h) Day of week
+
+Write a Python function to determine whether a given year is a leap year.
+
+Write a Python function to read an entire text file.
+
+Write a Python program to read first n lines of a file
+
+Create a Vehicle class with max_speed and mileage instance attributes
+
+Create a Vehicle class without any variables and methods
+class Vehicle:
+
+    def __init__(self, name, max_speed, mileage):
+        self.name = name
+        self.max_speed = max_speed
+        self.mileage = mileage
+
+Expected Output:
+Vehicle Name: School Volvo Speed: 180 Mileage: 12   
+-------------------------------------------------------------------------------
+
+Define property that should have the same value for every class instance
+Define a class attribute”color” with a default value white. I.e., Every Vehicle should be white.
+
+Use the following code for this exercise.
+class Vehicle:
+
+    def __init__(self, name, max_speed, mileage):
+        self.name = name
+        self.max_speed = max_speed
+        self.mileage = mileage
+
+class Bus(Vehicle):
+    pass
+
+class Car(Vehicle):
+    pass
+
+Expected Output:
+
+Color: White, Vehicle name: School Volvo, Speed: 180, Mileage: 12
+Color: White, Vehicle name: Audi Q5, Speed: 240, Mileage: 18
+-------------------------------------------------------------------------------
+Determine if School_bus is also an instance of the Vehicle class
+Given:
+class Vehicle:
+    def __init__(self, name, mileage, capacity):
+        self.name = name
+        self.mileage = mileage
+        self.capacity = capacity
+
+class Bus(Vehicle):
+    pass
+
+School_bus = Bus("School Volvo", 12, 50)
+
+Define a class called Lunch. Its __init__() method should have two arguments:self and menu.Where menu is a string. Add a method called menu_price. It will involve a if statement:
+
+if "menu 1" print "Your choice:", menu, "Price 12.00", 
+if "menu 2" print "Your choice:", menu, "Price 13.40", 
+else print "Error in menu".
+
+To check if it works
+define: Paul=Lunch("menu 1") 
+and call
+Paul.menu_price().
+-------------------------------------------------------------------------------
+
+Access the value of key2 from the following JSON
+
+import json
+sampleJson = """{"key1": "value1", "key2": "value2"}"""
+
+Expected Output:
+value2
+-------------------------------------------------------------------------------
+Sort JSON keys in and write them into a file
+sampleJson = {"id" : 1, "name" : "value2", "age" : 29}
+
+Expected Output:
+
+{
+    "age": 29,
+    "id": 1,
+    "name": "value2"
+}
+-------------------------------------------------------------------------------
+Access the nested key ‘salary’ from the following JSON
+
+import json
+
+sampleJson = """{ 
+   "company":{ 
+      "employee":{ 
+         "name":"emma",
+         "payble":{ 
+            "salary":7000,
+            "bonus":800
+         }
+      }
+   }
+}"""
+
+Expected Output:
+7000
+-------------------------------------------------------------------------------
+Check whether following json is valid or invalid. If Invalid correct it
+{ 
+   "company":{ 
+      "employee":{ 
+         "name":"emma",
+         "payble":{ 
+            "salary":7000
+            "bonus":800
+         }
+      }
+   }
+}
+
+Note: Use json.load() function to validate the JSON, use try & except
+-------------------------------------------------------------------------------
+Parse the following JSON to get all the values of a key ‘name’ within an array
+[ 
+   { 
+      "id":1,
+      "name":"name1",
+      "color":[ 
+         "red",
+         "green"
+      ]
+   },
+   { 
+      "id":2,
+      "name":"name2",
+      "color":[ 
+         "pink",
+         "yellow"
+      ]
+   }
+]
+
+Expected Output:
+
+["name1", "name2"]
+
+
+
+
+
+
 
 
 

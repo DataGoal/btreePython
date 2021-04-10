@@ -785,7 +785,7 @@ function with both,
 def myfunc(n):
   return lambda a : a * n
 
-mydoubler = myfunc(3)
+mydoubler = myfunc(2)
 mytripler = myfunc(3)
 
 print(mydoubler(11))
@@ -1223,12 +1223,12 @@ We can also split lines using file handling in Python. This splits the variable 
 with open("file.text", "r") as file:
     data = file.readlines()
     for line in data:
-        word = line.split()
+        word = line.split(",")
         print (word)    
 -------------------------------------------------------------------------------
 #to read n no. of lines
 with open("C:\\Users\\bbhagy905\\Desktop\\BBC\\Python_BTree\\btreePython\\README.md") as myfile:
-    firstNlines=myfile.readlines()[0:1]
+    firstNlines=myfile.readlines()[0:5]
     print(firstNlines)       
 -------------------------------------------------------------------------------
 Create a New File
@@ -1387,12 +1387,12 @@ If there is more than one match, only the first occurrence of the match will be 
 
 Search for the first white-space character in the string:
 
-import re
+  import re
 
-txt = "The rain in Spain"
-x = re.search("\s", txt)
+  txt = "The rain in Spain"
+  x = re.search("\s", txt)
 
-print("The first white-space character is located in position:", x.start())
+  print("The first white-space character is located in position:", x.start())
 -------------------------------------------------------------------------------
 If no matches are found, the value None is returned:
 
@@ -1493,3 +1493,1158 @@ txt = "The rain in Spain"
 x = re.search(r"\bS\w+", txt)
 print(x.group())
 -------------------------------------------------------------------------------
+PYTHON CLASSES AND OBJECTS
+
+Python is an object oriented programming language.
+Almost everything in Python is an object, with its properties and methods.
+A Class is like an object constructor, or a "blueprint" for creating objects.
+To create a class, use the keyword class:
+To understand the meaning of classes we have to understand the built-in __init__() function.
+Use the __init__() function to assign values to object properties, or other operations that are necessary to do when the object is being created
+Objects can also contain methods. Methods in objects are functions that belong to the object
+
+Create a Class
+To create a class, use the keyword class:
+
+Create a class named MyClass, with a property named x:
+
+class MyClass:
+  x = 5
+-------------------------------------------------------------------------------
+Create Object
+Now we can use the class named MyClass to create objects:
+
+Example
+Create an object named p1, and print the value of x:
+
+p1 = MyClass()
+print(p1.x)
+-------------------------------------------------------------------------------
+The __init__() Function
+The examples above are classes and objects in their simplest form, and are not really useful in real life applications.
+To understand the meaning of classes we have to understand the built-in __init__() function.
+All classes have a function called __init__(), which is always executed when the class is being initiated.
+Use the __init__() function to assign values to object properties, or other operations that are necessary to do when the object is being created:
+
+Create a class named Person, use the __init__() function to assign values for name and age:
+
+class Person:
+  def __init__(self, name, age):
+    self.name = name
+    self.age = age
+
+
+p1 = Person("John", 36)
+
+print(p1.name)
+print(p1.age)
+
+Note: The __init__() function is called automatically every time the class is being used to create a new object.
+-------------------------------------------------------------------------------
+Object Methods
+Objects can also contain methods. Methods in objects are functions that belong to the object.
+
+Let us create a method in the Person class:
+Insert a function that prints a greeting, and execute it on the p1 object:
+
+class Person:
+  def __init__(self, name, age):
+    self.name = name
+    self.age = age
+
+  def myfunc(self):
+    print("Hello my name is " + self.name + "and my age is " + str(self.age))
+
+p1 = Person("John", 36)
+p1.myfunc()
+-------------------------------------------------------------------------------
+
+The self Parameter
+The self parameter is a reference to the current instance of the class, and is used to access variables that belongs to the class.
+
+It does not have to be named self , you can call it whatever you like, but it has to be the first parameter of any function in the class:
+
+Use the words mysillyobject and abc instead of self:
+
+class Person:
+  def __init__(mysillyobject, name, age):
+    mysillyobject.name = name
+    mysillyobject.age = age
+
+  def myfunc(abc):
+    print("Hello my name is " + abc.name)
+
+p1 = Person("John", 36)
+p1.myfunc()
+-------------------------------------------------------------------------------
+Modify Object Properties
+You can modify properties on objects like this:
+
+Example
+Set the age of p1 to 40:
+
+p1.age = 40
+-------------------------------------------------------------------------------
+Delete Object Properties
+You can delete properties on objects by using the del keyword:
+
+Example
+Delete the age property from the p1 object:
+
+del p1.age
+-------------------------------------------------------------------------------
+Delete Objects
+You can delete objects by using the del keyword:
+
+Example
+Delete the p1 object:
+
+del p1
+-------------------------------------------------------------------------------
+The pass Statement
+class definitions cannot be empty, but if you for some reason have a class definition with no content, put in the pass statement to avoid getting an error.
+
+Example
+class Person:
+  pass
+-------------------------------------------------------------------------------
+An Object is an instance of a Class.
+A class is like a blueprint while an instance is a copy of the class with actual values.
+Let's take example animal dog, it’s an actual dog, dogs have many attributes like breed, age, color etc.
+You can have many dogs to create many different instances, but without the class as a guide, you would be lost, not knowing what information is required.
+
+An object consists of :
+State: It is represented by the attributes of an object. It also reflects the properties of an object.
+Behavior: It is represented by the methods of an object. It also reflects the response of an object to other objects.
+Identity: It gives a unique name to an object and enables one object to interact with other objects.
+
+DECLARING OBJECTS (Also called instantiating a class)
+When an object of a class is created, the class is said to be instantiated. All the instances share the attributes and the behavior of the class. But the values of those attributes, i.e. the state are unique for each object. A single class may have any number of instances.
+
+class Dog:
+     
+    # A simple class
+    # attribute
+    attr1 = "mammal"
+    attr2 = "dog"
+ 
+    # A sample method 
+    def fun(self):
+        print("I'm a", self.attr1)
+        print("I'm a", self.attr2)
+ 
+# Driver code
+# Object instantiation
+Rodger = Dog()
+ 
+# Accessing class attributes
+# and method through objects
+print(Rodger.attr1)
+Rodger.fun()
+
+In the above example, an object is created which is basically a dog named Rodger. This class only has two class attributes that tell us that Rodger is a dog and a mammal.
+-------------------------------------------------------------------------------
+THE SELF
+Class methods must have an extra first parameter in the method definition. We do not give a value for this parameter when we call the method, Python provides it.
+If we have a method that takes no arguments, then we still have to have one argument.
+This is similar to this pointer in C++ and this reference in Java.
+When we call a method of this object as myobject.method(arg1, arg2), this is automatically converted by Python into MyClass.method(myobject, arg1, arg2) – this is all the special self is about.
+-------------------------------------------------------------------------------
+__init__ method
+The __init__ method is similar to constructors in C++ and Java. Constructors are used to initializing the object’s state. Like methods, a constructor also contains a collection of statements(i.e. instructions) that are executed at the time of Object creation. It is run as soon as an object of a class is instantiated. The method is useful to do any initialization you want to do with your object.
+
+# A Sample class with init method
+class Person:
+   
+    # init method or constructor 
+    def __init__(self, name):
+        self.name = name
+   
+    # Sample Method 
+    def say_hi(self):
+        print('Hello, my name is', self.name)
+   
+p = Person('Nikhil')
+p.say_hi()
+-------------------------------------------------------------------------------
+CONSTRUCTORS IN PYTHON
+
+Constructors are generally used for instantiating an object.The task of constructors is to initialize(assign values) to the data members of the class when an object of class is created.In Python the __init__() method is called the constructor and is always called when an object is created.
+
+Types of constructors :
+
+default constructor: The default constructor is simple constructor which doesn’t accept any arguments. It’s definition has only one argument which is a reference to the instance being constructed.
+parameterized constructor: constructor with parameters is known as parameterized constructor.The parameterized constructor take its first argument as a reference to the instance being constructed known as self and the rest of the arguments are provided by the programmer.
+
+Example of default constructor :
+
+class btreesystems:
+  
+    # default constructor
+    def __init__(self):
+        self.btree = "btreesystems"
+  
+    # a method for printing data members
+    def print_btree(self):
+        print(self.btree)
+  
+  
+# creating object of the class
+obj = btreesystems()
+  
+# calling the instance method using the object obj
+obj.print_btree()
+-------------------------------------------------------------------------------
+Example of parameterized constructor :
+
+class Addition:
+    first = 0
+    second = 0
+    answer = 0
+      
+    # parameterized constructor
+    def __init__(self, f, s):
+        self.first = f
+        self.second = s
+      
+    def display(self):
+        print("First number = " + str(self.first))
+        print("Second number = " + str(self.second))
+        print("Addition of two numbers = " + str(self.answer))
+  
+    def calculate(self):
+        self.answer = self.first + self.second
+  
+# creating object of the class
+# this will invoke parameterized constructor
+obj = Addition(1000, 2000)
+  
+# perform Addition
+obj.calculate()
+  
+# display result
+obj.display()
+-------------------------------------------------------------------------------
+Inheritance in Python
+
+Inheritance is the capability of one class to derive or inherit the properties from another class.
+It represents real-world relationships well.
+It provides reusability of a code. We don’t have to write the same code again and again. Also, it allows us to add more features to a class without modifying it.
+It is transitive in nature, which means that if class B inherits from another class A, then all the subclasses of B would automatically inherit from class A.
+
+# A Python program to demonstrate inheritance 
+# Base or Super class. Note object in bracket.
+# (Generally, object is made ancestor of all classes)
+# In Python 3.x "class Person" is 
+# equivalent to "class Person(object)"
+class Person(object):
+       
+    # Constructor
+    def __init__(self, name):
+        self.name = name
+   
+    # To get name
+    def getName(self):
+        return self.name
+   
+    # To check if this person is an employee
+    def isEmployee(self):
+        return False
+   
+   
+# Inherited or Subclass (Note Person in bracket)
+class Employee(Person):
+   
+    # Here we return true
+    def isEmployee(self):
+        return True
+   
+# Driver code
+emp = Person("Bala")  # An Object of Person
+print(emp.getName(), emp.isEmployee())
+   
+emp = Employee("Raja") # An Object of Employee
+print(emp.getName(), emp.isEmployee())
+-------------------------------------------------------------------------------
+Subclassing (Calling constructor of parent class) 
+A child class needs to identify which class is its parent class. This can be done by mentioning the parent class name in the definition of the child class. 
+Eg: class subclass_name (superclass_name): 
+
+# Python code to demonstrate how parent constructors are called.
+  
+# parent class
+class Person( object ):    
+  
+        # __init__ is known as the constructor         
+        def __init__(self, name, idnumber):   
+                self.name = name
+                self.idnumber = idnumber
+        def display(self):
+                print(self.name)
+                print(self.idnumber)
+  
+# child class
+class Employee( Person ):           
+        def __init__(self, name, idnumber, salary, post):
+                self.salary = salary
+                self.post = post
+  
+                # invoking the __init__ of the parent class 
+                Person.__init__(self, name, idnumber) 
+  
+                  
+# creation of an object variable or an instance
+a = Employee('Rahul', 886012, 200000, "Intern")    
+  
+# calling a function of the class Person using its instance
+a.display() 
+
+‘a’ is the instance created for the class Person. It invokes the __init__() of the referred class. You can see ‘object’ written in the declaration of the class Person. In Python, every class inherits from a built-in basic class called ‘object’. The constructor i.e. the ‘__init__’ function of a class is invoked when we create an object variable or an instance of the class.
+
+The variables defined within __init__() are called as the instance variables or objects. Hence, ‘name’ and ‘idnumber’ are the objects of the class Person. Similarly, ‘salary’ and ‘post’ are the objects of the class Employee. Since the class Employee inherits from class Person, ‘name’ and ‘idnumber’ are also the objects of class Employee.
+If you forget to invoke the __init__() of the parent class then its instance variables would not be available to the child class. 
+-------------------------------------------------------------------------------
+Different forms of Inheritance: 
+1. Single inheritance: When a child class inherits from only one parent class, it is called single inheritance. We saw an example above.
+2. Multiple inheritance: When a child class inherits from multiple parent classes, it is called multiple inheritance. 
+Unlike Java and like C++, Python supports multiple inheritance. We specify all parent classes as a comma-separated list in the bracket. 
+3. Multilevel inheritance: When we have a child and grandchild relationship.
+4. Hierarchical inheritance: More than one derived classes are created from a single base.
+5. Hybrid inheritance: This form combines more than one form of inheritance. Basically, it is a blend of more than one type of inheritance.
+-------------------------------------------------------------------------------
+
+# Python program to demonstrate
+# multiple inheritance
+# Base class1
+class Mother:
+    mothername = ""
+    def mother(self):
+        print(self.mothername)
+ 
+# Base class2
+class Father:
+    fathername = ""
+    def father(self):
+        print(self.fathername)
+ 
+# Derived class
+class Son(Mother, Father):
+    def parents(self):
+        print("Father :", self.fathername)
+        print("Mother :", self.mothername)
+ 
+# Driver's code
+s1 = Son()
+s1.fathername = "JACK"
+s1.mothername = "JOE"
+s1.parents()
+-------------------------------------------------------------------------------
+# Python program to demonstrate
+# multilevel inheritance
+ 
+# Base class
+class Grandfather:
+ 
+    def __init__(self, grandfathername):
+        self.grandfathername = grandfathername
+ 
+# Intermediate class
+class Father(Grandfather):
+    def __init__(self, fathername, grandfathername):
+        self.fathername = fathername
+ 
+        # invoking constructor of Grandfather class
+        Grandfather.__init__(self, grandfathername)
+ 
+# Derived class
+class Son(Father):
+    def __init__(self,sonname, fathername, grandfathername):
+        self.sonname = sonname
+ 
+        # invoking constructor of Father class
+        Father.__init__(self, fathername, grandfathername)
+ 
+    def print_name(self):
+        print('Grandfather name :', self.grandfathername)
+        print("Father name :", self.fathername)
+        print("Son name :", self.sonname)
+ 
+#  Driver code
+s1 = Son('Prince', 'John', 'Mark')
+print(s1.grandfathername)
+s1.print_name()
+-------------------------------------------------------------------------------
+# Python program to demonstrate
+# Hierarchical inheritance
+# Base class
+
+class Parent:
+      def func1(self):
+          print("This function is in parent class.")
+ 
+# Derived class1
+class Child1(Parent):
+      def func2(self):
+          print("This function is in child 1.")
+ 
+# Derivied class2
+class Child2(Parent):
+      def func3(self):
+          print("This function is in child 2.")
+  
+# Driver's code
+object1 = Child1()
+object2 = Child2()
+object1.func1()
+object1.func2()
+object2.func1()
+object2.func3()
+-------------------------------------------------------------------------------
+# Python program to demonstrate
+# hybrid inheritance
+
+class School:
+     def func1(self):
+         print("This function is in school.")
+  
+class Student1(School):
+     def func2(self):
+         print("This function is in student 1. ")
+  
+class Student2(School):
+     def func3(self):
+         print("This function is in student 2.")
+  
+class Student3(Student1, School):
+     def func4(self):
+         print("This function is in student 3.")
+  
+# Driver's code
+object = Student3()
+object.func1()
+object.func2()
+-------------------------------------------------------------------------------
+
+Private members of parent class
+We don’t always want the instance variables of the parent class to be inherited by the child class i.e. we can make some of the instance variables of the parent class private, which won’t be available to the child class. 
+We can make an instance variable by adding double underscores before its name. For example,
+
+# Python program to demonstrate private members
+# of the parent class
+class C(object):
+       def __init__(self):
+              self.c = 21
+  
+              # d is private instance variable 
+              self.__d = 42    
+class D(C):
+       def __init__(self):
+              self.e = 84
+              C.__init__(self)
+object1 = D()
+  
+# produces an error as d is private instance variable
+print(object1.d) 
+
+Since ‘d’ is made private by those underscores, it is not available to the child class ‘D’ and hence the error.
+-------------------------------------------------------------------------------
+ENCAPSULATION IN PYTHON
+
+Protected members
+Protected members (in C++ and JAVA) are those members of the class that cannot be accessed outside the class but can be accessed from within the class and its subclasses. To accomplish this in Python, just follow the convention by prefixing the name of the member by a single underscore “_”.
+
+# Python program to
+# demonstrate protected members 
+# Creating a base class
+class Base:
+    def __init__(self):
+         
+        # Protected member
+        self._a = 2
+ 
+# Creating a derived class   
+class Derived(Base):
+    def __init__(self):
+         
+        # Calling constructor of
+        # Base class
+        Base.__init__(self)
+        print("Calling protected member of base class: ")
+        print(self._a)
+ 
+obj1 = Derived()
+         
+obj2 = Base()
+ 
+# Calling protected member
+# Outside class will  result in
+# AttributeError
+print(obj2.a)
+-------------------------------------------------------------------------------
+Private members
+Private members are similar to protected members, the difference is that the class members declared private should neither be accessed outside the class nor by any base class. In Python, there is no existence of Private instance variables that cannot be accessed except inside a class. However, to define a private member prefix the member name with double underscore “__”.
+
+# Python program to
+# demonstrate private members
+
+# Creating a Base class
+class Base:
+    def __init__(self):
+        self.a = "BtreeSystems"
+        self.__c = "Computer"
+
+
+# Creating a derived class
+class Derived(Base):
+    def __init__(self):
+        # Calling constructor of
+        # Base class
+        Base.__init__(self)
+        print("Calling private member of base class: ")
+        print(self.__c)
+
+
+# Driver code
+obj1 = Base()
+print(obj1.a)
+#print(obj1.c)
+
+obj2 = Derived()
+
+# Uncommenting print(obj1.c) will
+# raise an AttributeError
+
+# Uncommenting obj2 = Derived() will
+# also raise an AtrributeError as
+# private member of base class
+# is called inside derived class
+-------------------------------------------------------------------------------
+POLYMORPHISM IN PYTHON
+The word polymorphism means having many forms. In programming, polymorphism means same function name (but different signatures) being uses for different types.
+
+Example of inbuilt polymorphic functions :
+# Python program to demonstrate in-built poly-
+# morphic functions
+# len() being used for a string
+print(len("btreesystems"))
+  
+# len() being used for a list
+print(len([10, 20, 30]))
+
+Examples of used defined polymorphic functions :
+# A simple Python function to demonstrate 
+# Polymorphism
+  
+def add(x, y, z = 0): 
+    return x + y+z
+  
+# Driver code 
+print(add(2, 3))
+print(add(2, 3, 4))
+-------------------------------------------------------------------------------
+Polymorphism with class methods:
+Below code shows how python can use two different class types, in the same way. We create a for loop that iterates through a tuple of objects. Then call the methods without being concerned about which class type each object is. We assume that these methods actually exist in each class.
+
+class India():
+    def capital(self):
+        print("New Delhi is the capital of India.")
+  
+    def language(self):
+        print("Hindi is the most widely spoken language of India.")
+  
+    def type(self):
+        print("India is a developing country.")
+  
+class USA():
+    def capital(self):
+        print("Washington, D.C. is the capital of USA.")
+  
+    def language(self):
+        print("English is the primary language of USA.")
+  
+    def type(self):
+        print("USA is a developed country.")
+  
+obj_ind = India()
+obj_usa = USA()
+for country in (obj_ind, obj_usa):
+    country.capital()
+    country.language()
+    country.type()
+-------------------------------------------------------------------------------
+Polymorphism with Inheritance:
+In Python, Polymorphism lets us define methods in the child class that have the same name as the methods in the parent class. In inheritance, the child class inherits the methods from the parent class. However, it is possible to modify a method in a child class that it has inherited from the parent class. This is particularly useful in cases where the method inherited from the parent class doesn’t quite fit the child class. In such cases, we re-implement the method in the child class. This process of re-implementing a method in the child class is known as Method Overriding.
+
+
+class Bird:
+  def intro(self):
+    print("There are many types of birds.")
+      
+  def flight(self):
+    print("Most of the birds can fly but some cannot.")
+    
+class sparrow(Bird):
+  def flight(self):
+    print("Sparrows can fly.")
+
+#method Overriding      
+class ostrich(Bird):
+  def flight(self):
+    print("Ostriches cannot fly.")
+      
+obj_bird = Bird()
+obj_spr = sparrow()
+obj_ost = ostrich()
+  
+obj_bird.intro()
+obj_bird.flight()
+  
+obj_spr.intro()
+obj_spr.flight()
+  
+obj_ost.intro()
+obj_ost.flight()
+-------------------------------------------------------------------------------
+Polymorphism with a Function and objects:
+It is also possible to create a function that can take any object, allowing for polymorphism. In this example, let’s create a function called “func()” which will take an object which we will name “obj”. Though we are using the name ‘obj’, any instantiated object will be able to be called into this function. Next, lets give the function something to do that uses the ‘obj’ object we passed to it. In this case lets call the three methods, viz., capital(), language() and type(), each of which is defined in the two classes ‘India’ and ‘USA’. Next, let’s create instantiations of both the ‘India’ and ‘USA’ classes if we don’t have them already. With those, we can call their action using the same func() function:
+
+class India():
+    def capital(self):
+        print("New Delhi is the capital of India.")
+   
+    def language(self):
+        print("Hindi is the most widely spoken language of India.")
+   
+    def type(self):
+        print("India is a developing country.")
+   
+class USA():
+    def capital(self):
+        print("Washington, D.C. is the capital of USA.")
+   
+    def language(self):
+        print("English is the primary language of USA.")
+   
+    def type(self):
+        print("USA is a developed country.")
+  
+def func(obj):
+    obj.capital()
+    obj.language()
+    obj.type()
+   
+obj_ind = India()
+obj_usa = USA()
+   
+func(obj_ind)
+func(obj_usa)
+-------------------------------------------------------------------------------
+CLASS OR STATIC VARIABLES IN PYTHON
+
+All objects share class or static variables. An instance or non-static variables are different for different objects (every object has a copy). For example, let a Computer Science Student be represented by class CSStudent. The class may have a static variable whose value is “cse” for all objects. And class may also have non-static members like name and roll. In C++ and Java, we can use static keywords to make a variable a class variable. The variables which don’t have a preceding static keyword are instance variables. The Python approach is simple; it doesn’t require a static keyword. 
+
+# Python program to show that the variables with a value 
+# assigned in class declaration, are class variables
+  
+# Class for Computer Science Student
+class CSStudent:
+    stream = 'cse'                  # Class Variable
+    def __init__(self,name,roll):
+        self.name = name            # Instance Variable
+        self.roll = roll            # Instance Variable
+  
+# Objects of CSStudent class
+a = CSStudent('Bala', 1)
+b = CSStudent('Raja', 2)
+  
+print(a.stream)
+print(b.stream)
+print(a.name)
+print(b.name)
+print(a.roll)
+print(b.roll)
+  
+# Class variables can be accessed using class
+# name also
+print(CSStudent.stream) # prints "cse"
+  
+# Now if we change the stream for just a it won't be changed for b
+a.stream = 'ece'
+print(a.stream) # prints 'ece'
+print(b.stream) # prints 'cse'
+  
+# To change the stream for all instances of the class we can change it directly from the class
+CSStudent.stream = 'mech'
+  
+print(a.stream) # prints 'mech'
+print(b.stream) # prints 'mech'
+-------------------------------------------------------------------------------
+PYTHON ITERATORS
+An iterator is an object that contains a countable number of values.
+An iterator is an object that can be iterated upon, meaning that you can traverse through all the values.
+Technically, in Python, an iterator is an object which implements the iterator protocol, which consist of the methods __iter__() and __next__()
+-------------------------------------------------------------------------------
+Iterator vs Iterable
+Lists, tuples, dictionaries, and sets are all iterable objects. They are iterable containers which you can get an iterator from.
+
+All these objects have a iter() method which is used to get an iterator:
+
+Return an iterator from a tuple, and print each value:
+
+mytuple = ("apple", "banana", "cherry")
+myit = iter(mytuple)
+
+print(next(myit))
+print(next(myit))
+print(next(myit))
+-------------------------------------------------------------------------------
+Even strings are iterable objects, and can return an iterator:
+
+Strings are also iterable objects, containing a sequence of characters:
+
+mystr = "banana"
+myit = iter(mystr)
+
+print(next(myit))
+print(next(myit))
+print(next(myit))
+print(next(myit))
+print(next(myit))
+print(next(myit))
+-------------------------------------------------------------------------------
+Create an Iterator
+To create an object/class as an iterator you have to implement the methods __iter__() and __next__() to your object.
+
+As in the Python Classes/Objects chapter, all classes have a function called __init__(), which allows you to do some initializing when the object is being created.
+
+The __iter__() method acts similar, you can do operations (initializing etc.), but must always return the iterator object itself.
+The __next__() method also allows you to do operations, and must return the next item in the sequence.
+
+Create an iterator that returns numbers, starting with 1, and each sequence will increase by one (returning 1,2,3,4,5 etc.):
+
+class MyNumbers:
+  def __iter__(self):
+    self.a = 1
+    return self
+
+  def __next__(self):
+    x = self.a
+    self.a += 1
+    return x
+
+myclass = MyNumbers()
+myiter = iter(myclass)
+
+print(next(myiter))
+print(next(myiter))
+print(next(myiter))
+print(next(myiter))
+print(next(myiter))
+-------------------------------------------------------------------------------
+StopIteration
+The example above would continue forever if you had enough next() statements, or if it was used in a for loop.
+
+To prevent the iteration to go on forever, we can use the StopIteration statement.
+
+In the __next__() method, we can add a terminating condition to raise an error if the iteration is done a specified number of times:
+
+Example
+Stop after 20 iterations:
+
+class MyNumbers:
+  def __iter__(self):
+    self.a = 1
+    return self
+
+  def __next__(self):
+    if self.a <= 20:
+      x = self.a
+      self.a += 1
+      return x
+    else:
+      raise StopIteration
+
+myclass = MyNumbers()
+myiter = iter(myclass)
+
+for x in myiter:
+  print(x)
+-------------------------------------------------------------------------------
+EXCEPTIONS IN PYTHON
+Python has many built-in exceptions that are raised when your program encounters an error (something in the program goes wrong).
+
+When these exceptions occur, the Python interpreter stops the current process and passes it to the calling process until it is handled. If not handled, the program will crash.
+
+Exceptions are raised when the program is syntactically correct but the code resulted in an error. This error does not stop the execution of the program, however, it changes the normal flow of the program.
+-------------------------------------------------------------------------------
+For example, let us consider a program where we have a function A that calls function B, which in turn calls function C. If an exception occurs in function C but is not handled in C, the exception passes to B and then to A.
+
+If never handled, an error message is displayed and our program comes to a sudden unexpected halt.
+-------------------------------------------------------------------------------
+Exceptions versus Syntax Errors:
+Syntax errors occur when the parser detects an incorrect statement. Observe the following example:
+
+print( 0 / 0 ))
+# it will throw syntax error
+-------------------------------------------------------------------------------
+exception errors will occurs whenever syntactically correct Python code results in an error. 
+
+print( 0 / 0)
+#it will throw ZeroDivisionError: integer division or modulo by zero
+
+Instead of showing the message exception error, Python details what type of exception error was encountered. In this case, it was a ZeroDivisionError. Python comes with various built-in exceptions as well as the possibility to create self-defined exceptions.
+-------------------------------------------------------------------------------
+BUILT-IN EXCEPTIONS:
+BaseException
+ +-- SystemExit
+ +-- KeyboardInterrupt
+ +-- GeneratorExit
+ +-- Exception
+      +-- StopIteration
+      +-- StopAsyncIteration
+      +-- ArithmeticError
+      |    +-- FloatingPointError
+      |    +-- OverflowError
+      |    +-- ZeroDivisionError
+      +-- AssertionError
+      +-- AttributeError
+      +-- BufferError
+      +-- EOFError
+      +-- ImportError
+      |    +-- ModuleNotFoundError
+      +-- LookupError
+      |    +-- IndexError
+      |    +-- KeyError
+      +-- MemoryError
+      +-- NameError
+      |    +-- UnboundLocalError
+      +-- OSError
+      |    +-- BlockingIOError
+      |    +-- ChildProcessError
+      |    +-- ConnectionError
+      |    |    +-- BrokenPipeError
+      |    |    +-- ConnectionAbortedError
+      |    |    +-- ConnectionRefusedError
+      |    |    +-- ConnectionResetError
+      |    +-- FileExistsError
+      |    +-- FileNotFoundError
+      |    +-- InterruptedError
+      |    +-- IsADirectoryError
+      |    +-- NotADirectoryError
+      |    +-- PermissionError
+      |    +-- ProcessLookupError
+      |    +-- TimeoutError
+      +-- ReferenceError
+      +-- RuntimeError
+      |    +-- NotImplementedError
+      |    +-- RecursionError
+      +-- SyntaxError
+      |    +-- IndentationError
+      |         +-- TabError
+      +-- SystemError
+      +-- TypeError
+      +-- ValueError
+      |    +-- UnicodeError
+      |         +-- UnicodeDecodeError
+      |         +-- UnicodeEncodeError
+      |         +-- UnicodeTranslateError
+      +-- Warning
+           +-- DeprecationWarning
+           +-- PendingDeprecationWarning
+           +-- RuntimeWarning
+           +-- SyntaxWarning
+           +-- UserWarning
+           +-- FutureWarning
+           +-- ImportWarning
+           +-- UnicodeWarning
+           +-- BytesWarning
+           +-- ResourceWarning
+
+Raising an Exception
+We can use raise to throw an exception if a condition occurs. The statement can be complemented with a custom exception.
+If you want to throw an error when a certain condition occurs using raise, you could go about it like this:
+
+x = 10
+if x > 5:
+    raise Exception('x should not exceed 5. The value of x was: {}'.format(x))
+
+The program comes to a halt and displays our exception to screen, offering clues about what went wrong.
+-------------------------------------------------------------------------------
+The AssertionError Exception
+Instead of waiting for a program to crash midway, you can also start by making an assertion in Python. We assert that a certain condition is met. If this condition turns out to be True, then that is excellent! The program can continue. If the condition turns out to be False, you can have the program throw an AssertionError exception.
+
+In the following example, where it is asserted that the code will be executed on a Linux system:
+
+import sys
+assert ('linux' in sys.platform), "This code runs on Linux only."
+
+If you run this code on a Linux machine, the assertion passes. If you were to run this code on a Windows machine, the outcome of the assertion would be False and the result would be the following:
+
+Traceback (most recent call last):
+  File "<input>", line 2, in <module>
+AssertionError: This code runs on Linux only.
+
+In this example, throwing an AssertionError exception is the last thing that the program will do. The program will come to halt and will not continue. What if that is not what you want?
+-------------------------------------------------------------------------------
+THE TRY AND EXCEPT BLOCK: HANDLING EXCEPTIONS
+The try and except block in Python is used to catch and handle exceptions. Python executes code following the try statement as a “normal” part of the program. The code that follows the except statement is the program’s response to any exceptions in the preceding try clause.
+
+As you saw earlier, when syntactically correct code runs into an error, Python will throw an exception error. This exception error will crash the program if it is unhandled. The except clause determines how your program responds to exceptions.
+
+The following function can help you understand the try and except block:
+
+You can give the function a try using the following code:
+
+import sys
+def linux_interaction():
+    assert ('linux' in sys.platform), "Function can only run on Linux systems."
+    print('Doing something.')
+try:
+    linux_interaction()
+except:
+    pass
+
+The way you handled the error here is by handing out a pass. If you were to run this code on a Windows machine, you would get no output:    
+
+You got nothing. The good thing here is that the program did not crash. But it would be nice to see if some type of exception occurred whenever you ran your code. To this end, you can change the pass into something that would generate an informative message, like so:
+
+import sys
+def linux_interaction():
+    assert ('linux' in sys.platform), "Function can only run on Linux systems."
+    print('Doing something.')
+try:
+    linux_interaction()
+except:
+    print('Linux function was not executed')
+
+Now this code on a Windows machine prints:    
+
+Linux function was not executed
+
+When an exception occurs in a program running this function, the program will continue as well as inform you about the fact that the function call was not successful.
+
+What you did not get to see was the type of error that was thrown as a result of the function call. In order to see exactly what went wrong, you would need to catch the error that the function threw.
+
+The following code is an example where you capture the AssertionError and output that message to screen:
+
+import sys
+def linux_interaction():
+    assert ('linux' in sys.platform), "Function can only run on Linux systems."
+    print('Doing something.')
+try:
+    linux_interaction()
+except AssertionError as error:
+    print(error)
+    print('The linux_interaction() function was not executed')
+
+Running this function on a Windows machine outputs the following:
+
+Function can only run on Linux systems.
+The linux_interaction() function was not executed
+
+The first message is the AssertionError, informing you that the function can only be executed on a Linux machine. The second message tells you which function was not executed.
+-------------------------------------------------------------------------------
+In the previous example, you called a function that you wrote yourself. When you executed the function, you caught the AssertionError exception and printed it to screen.
+
+Here’s another example where you open a file and use a built-in exception:
+
+import sys
+def linux_interaction():
+    assert ('linux' in sys.platform), "Function can only run on Linux systems."
+    print('Doing something.')
+try:
+    with open('file.log') as file:
+        read_data = file.read()
+except:
+    print('Could not open file.log')
+
+If file.log does not exist, this block of code will output the following:
+
+Could not open file.log
+
+This is an informative message, and our program will still continue to run. In the Python docs, you can see that there are a lot of built-in exceptions that you can use here. One exception described on that page is the following:
+
+Exception FileNotFoundError
+
+Raised when a file or directory is requested but doesn’t exist. Corresponds to errno ENOENT.
+
+To catch this type of exception and print it to screen, you could use the following code:
+
+import sys
+def linux_interaction():
+    assert ('linux' in sys.platform), "Function can only run on Linux systems."
+    print('Doing something.')
+try:
+    with open('file.log') as file:
+        read_data = file.read()
+except FileNotFoundError as fnf_error:
+    print(fnf_error)
+
+In this case, if file.log does not exist, the output will be the following:
+
+[Errno 2] No such file or directory: 'file.log'
+-------------------------------------------------------------------------------
+You can have more than one function call in your try clause and anticipate catching various exceptions. A thing to note here is that the code in the try clause will stop as soon as an exception is encountered.
+
+Warning: Catching Exception hides all errors…even those which are completely unexpected. This is why you should avoid bare except clauses in your Python programs. Instead, you’ll want to refer to specific exception classes you want to catch and handle.
+
+Look at the following code. Here, you first call the linux_interaction() function and then try to open a file:
+
+import sys
+def linux_interaction():
+    assert ('linux' in sys.platform), "Function can only run on Linux systems."
+    print('Doing something.')
+try:
+    linux_interaction()
+    with open('file.log') as file:
+        read_data = file.read()
+except FileNotFoundError as fnf_error:
+    print(fnf_error)
+except AssertionError as error:
+    print(error)
+    print('Linux linux_interaction() function was not executed')
+
+If the file does not exist, running this code on a Windows machine will output the following:
+
+Function can only run on Linux systems.
+Linux linux_interaction() function was not executed
+
+Inside the try clause, you ran into an exception immediately and did not get to the part where you attempt to open file.log. Now look at what happens when you run the code on a Linux machine:
+
+[Errno 2] No such file or directory: 'file.log'
+-------------------------------------------------------------------------------
+Here are the key takeaways:
+
+A try clause is executed up until the point where the first exception is encountered.
+Inside the except clause, or the exception handler, you determine how the program responds to the exception.
+You can anticipate multiple exceptions and differentiate how the program should respond to them.
+Avoid using bare except clauses.
+
+-------------------------------------------------------------------------------
+The else Clause
+In Python, using the else statement, you can instruct a program to execute a certain block of code only in the absence of exceptions.
+
+Look at the following example:
+
+import sys
+def linux_interaction():
+    assert ('linux' in sys.platform), "Function can only run on Linux systems."
+    print('Doing something.')
+try:
+    linux_interaction()
+except AssertionError as error:
+    print(error)
+else:
+    print('Executing the else clause.')
+
+If you were to run this code on a Linux system, the output would be the following:
+
+Doing something.
+Executing the else clause.
+
+Because the program did not run into any exceptions, the else clause was executed.
+
+-------------------------------------------------------------------------------
+You can also try to run code inside the else clause and catch possible exceptions there as well:
+
+import sys
+def linux_interaction():
+    assert ('linux' in sys.platform), "Function can only run on Linux systems."
+    print('Doing something.')
+try:
+    linux_interaction()
+except AssertionError as error:
+    print(error)
+else:
+    try:
+        with open('file.log') as file:
+            read_data = file.read()
+    except FileNotFoundError as fnf_error:
+        print(fnf_error)
+
+If you were to execute this code on a Linux machine, you would get the following result:
+
+Doing something.
+[Errno 2] No such file or directory: 'file.log'
+
+From the output, you can see that the linux_interaction() function ran. Because no exceptions were encountered, an attempt to open file.log was made. That file did not exist, and instead of opening the file, you caught the FileNotFoundError exception.
+-------------------------------------------------------------------------------
+Cleaning Up After Using finally
+Imagine that you always had to implement some sort of action to clean up after executing your code. Python enables you to do so using the finally clause.
+
+import sys
+def linux_interaction():
+    assert ('linux' in sys.platform), "Function can only run on Linux systems."
+    print('Doing something.')
+try:
+    linux_interaction()
+except AssertionError as error:
+    print(error)
+else:
+    try:
+        with open('file.log') as file:
+            read_data = file.read()
+    except FileNotFoundError as fnf_error:
+        print(fnf_error)
+finally:
+    print('Cleaning up, irrespective of any exceptions.')
+
+In the previous code, everything in the finally clause will be executed. It does not matter if you encounter an exception somewhere in the try or else clauses. Running the previous code on a Windows machine would output the following:
+
+Function can only run on Linux systems.
+Cleaning up, irrespective of any exceptions.
+-------------------------------------------------------------------------------
+PYTHON JSON
+
+JSON is a syntax for storing and exchanging data.
+JSON is text, written with JavaScript object notation.
+Python has a built-in package called json, which can be used to work with JSON data.
+
+json.loads() method will results the json to Python dictionary.
+
+Example
+Convert from JSON to Python:
+
+import json
+
+# some JSON:
+x =  '{ "name":"John", "age":30, "city":"New York"}'
+# parse x:
+y = json.loads(x)
+# the result is a Python dictionary:
+print(y["age"])
+-------------------------------------------------------------------------------
+Convert from Python to JSON
+Python object can be converted into a JSON string by using the json.dumps() method.
+
+Example
+Convert from Python to JSON:
+import json
+# a Python object (dict):
+x = {
+  "name": "John",
+  "age": 30,
+  "city": "New York"
+}
+# convert into JSON:
+y = json.dumps(x)
+# the result is a JSON string:
+print(y)
+-------------------------------------------------------------------------------
+Order the Result
+The json.dumps() method has parameters to order the keys in the result:
+
+Example
+Use the sort_keys parameter to specify if the result should be sorted or not:
+
+json.dumps(x, indent=4, sort_keys=True)
+
+
+
+
+
+
+
+
+
+
