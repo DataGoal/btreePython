@@ -1,0 +1,2020 @@
+SQL - RDBMS CONCEPTS:
+
+What is RDBMS?
+RDBMS stands for Relational Database Management System. RDBMS is the basis for SQL, and for all modern database systems like MS SQL Server, IBM DB2, Oracle, MySQL, and Microsoft Access.
+
+A Relational database management system (RDBMS) is a database management system (DBMS) that is based on the relational model as introduced by E. F. Codd.
+-------------------------------------------------------------------------------
+What is a table?
+The data in an RDBMS is stored in database objects which are called as tables. This table is basically a collection of related data entries and it consists of numerous columns and rows.
+
+Remember, a table is the most common and simplest form of data storage in a relational database. The following program is an example of a CUSTOMERS table −
+
++----+----------+-----+-----------+----------+
+| ID | NAME     | AGE | ADDRESS   | SALARY   |
++----+----------+-----+-----------+----------+
+|  1 | Ramesh   |  32 | Ahmedabad |  2000.00 |
+|  2 | Khilan   |  25 | Delhi     |  1500.00 |
+|  3 | kaushik  |  23 | Kota      |  2000.00 |
+|  4 | Chaitali |  25 | Mumbai    |  6500.00 |
+|  5 | Hardik   |  27 | Bhopal    |  8500.00 |
+|  6 | Komal    |  22 | MP        |  4500.00 |
+|  7 | Muffy    |  24 | Indore    | 10000.00 |
++----+----------+-----+-----------+----------+
+-------------------------------------------------------------------------------
+What is a field?
+Every table is broken up into smaller entities called fields. The fields in the CUSTOMERS table consist of ID, NAME, AGE, ADDRESS and SALARY.
+
+A field is a column in a table that is designed to maintain specific information about every record in the table.
+-------------------------------------------------------------------------------
+What is a Record or a Row?
+A record is also called as a row of data is each individual entry that exists in a table. For example, there are 7 records in the above CUSTOMERS table. Following is a single row of data or record in the CUSTOMERS table −
+
++----+----------+-----+-----------+----------+
+|  1 | Ramesh   |  32 | Ahmedabad |  2000.00 |
++----+----------+-----+-----------+----------+
+A record is a horizontal entity in a table.
+-------------------------------------------------------------------------------
+What is a column?
+A column is a vertical entity in a table that contains all information associated with a specific field in a table.
+
+For example, a column in the CUSTOMERS table is ADDRESS, which represents location description and would be as shown below −
+
++-----------+
+| ADDRESS   |
++-----------+
+| Ahmedabad |
+| Delhi     |
+| Kota      |
+| Mumbai    |
+| Bhopal    |
+| MP        |
+| Indore    |
++----+------+
+-------------------------------------------------------------------------------
+What is a NULL value?
+A NULL value in a table is a value in a field that appears to be blank, which means a field with a NULL value is a field with no value.
+
+It is very important to understand that a NULL value is different than a zero value or a field that contains spaces. A field with a NULL value is the one that has been left blank during a record creation.
+-------------------------------------------------------------------------------
+SQL Constraints
+Constraints are the rules enforced on data columns on a table. These are used to limit the type of data that can go into a table. This ensures the accuracy and reliability of the data in the database.
+
+Constraints can either be column level or table level. Column level constraints are applied only to one column whereas, table level constraints are applied to the entire table.
+
+Following are some of the most commonly used constraints available in SQL −
+
+NOT NULL Constraint − Ensures that a column cannot have a NULL value.
+DEFAULT Constraint − Provides a default value for a column when none is specified.
+UNIQUE Constraint − Ensures that all the values in a column are different.
+PRIMARY Key − Uniquely identifies each row/record in a database table.
+FOREIGN Key − Uniquely identifies a row/record in any another database table.
+CHECK Constraint − The CHECK constraint ensures that all values in a column satisfy certain conditions.
+INDEX − Used to create and retrieve data from the database very quickly.
+-------------------------------------------------------------------------------
+Data Integrity
+The following categories of data integrity exist with each RDBMS −
+
+Entity Integrity − There are no duplicate rows in a table.
+Domain Integrity − Enforces valid entries for a given column by restricting the type, the format, or the range of values.
+Referential integrity − Rows cannot be deleted, which are used by other records.
+User-Defined Integrity − Enforces some specific business rules that do not fall into entity, domain or referential integrity.
+-------------------------------------------------------------------------------
+SQL - Syntax
+
+SQL is followed by a unique set of rules and guidelines called Syntax.
+
+All the SQL statements start with any of the keywords like SELECT, INSERT, UPDATE, DELETE, ALTER, DROP, CREATE, USE, SHOW and all the statements end with a semicolon (;).
+
+The most important point to be noted here is that SQL is case insensitive, which means SELECT and select have same meaning in SQL statements. Whereas, MySQL makes difference in table names. So, if you are working with MySQL, then you need to give table names as they exist in the database.
+
+Various Syntax in SQL
+
+SQL SELECT Statement
+
+SELECT column1, column2....columnN
+FROM   table_name;
+-------------------------------------------------------------------------------
+SQL DISTINCT Clause
+SELECT DISTINCT column1, column2....columnN
+FROM   table_name;
+-------------------------------------------------------------------------------
+SQL WHERE Clause
+SELECT column1, column2....columnN
+FROM   table_name
+WHERE  CONDITION;
+-------------------------------------------------------------------------------
+SQL AND/OR Clause
+SELECT column1, column2....columnN
+FROM   table_name
+WHERE  CONDITION-1 {AND|OR} CONDITION-2;
+-------------------------------------------------------------------------------
+SQL IN Clause
+SELECT column1, column2....columnN
+FROM   table_name
+WHERE  column_name IN (val-1, val-2,...val-N);
+-------------------------------------------------------------------------------
+SQL BETWEEN Clause
+SELECT column1, column2....columnN
+FROM   table_name
+WHERE  column_name BETWEEN val-1 AND val-2;
+-------------------------------------------------------------------------------
+SQL LIKE Clause
+SELECT column1, column2....columnN
+FROM   table_name
+WHERE  column_name LIKE { PATTERN };
+-------------------------------------------------------------------------------
+SQL ORDER BY Clause
+SELECT column1, column2....columnN
+FROM   table_name
+WHERE  CONDITION
+ORDER BY column_name {ASC|DESC};
+-------------------------------------------------------------------------------
+SQL GROUP BY Clause
+SELECT SUM(column_name)
+FROM   table_name
+WHERE  CONDITION
+GROUP BY column_name;
+-------------------------------------------------------------------------------
+SQL COUNT Clause
+SELECT COUNT(column_name)
+FROM   table_name
+WHERE  CONDITION;
+-------------------------------------------------------------------------------
+SQL HAVING Clause
+SELECT SUM(column_name)
+FROM   table_name
+WHERE  CONDITION
+GROUP BY column_name
+HAVING (arithematic function condition);
+-------------------------------------------------------------------------------
+SQL CREATE TABLE Statement
+CREATE TABLE table_name(
+column1 datatype,
+column2 datatype,
+column3 datatype,
+.....
+columnN datatype,
+PRIMARY KEY( one or more columns )
+);
+-------------------------------------------------------------------------------
+SQL DROP TABLE Statement
+DROP TABLE table_name;
+-------------------------------------------------------------------------------
+SQL DESC Statement
+DESC table_name;
+-------------------------------------------------------------------------------
+SQL TRUNCATE TABLE Statement
+TRUNCATE TABLE table_name;
+-------------------------------------------------------------------------------
+SQL ALTER TABLE Statement
+ALTER TABLE table_name {ADD|DROP|MODIFY} column_name {data_ype};
+-------------------------------------------------------------------------------
+SQL ALTER TABLE Statement (Rename)
+ALTER TABLE table_name RENAME TO new_table_name;
+-------------------------------------------------------------------------------
+SQL INSERT INTO Statement
+INSERT INTO table_name( column1, column2....columnN)
+VALUES ( value1, value2....valueN);
+-------------------------------------------------------------------------------
+SQL UPDATE Statement
+UPDATE table_name
+SET column1 = value1, column2 = value2....columnN=valueN
+[ WHERE  CONDITION ];
+-------------------------------------------------------------------------------
+SQL DELETE Statement
+DELETE FROM table_name
+WHERE  {CONDITION};
+-------------------------------------------------------------------------------
+SQL CREATE DATABASE Statement
+CREATE DATABASE database_name;
+-------------------------------------------------------------------------------
+SQL DROP DATABASE Statement
+DROP DATABASE database_name;
+-------------------------------------------------------------------------------
+SQL USE Statement
+USE database_name;
+-------------------------------------------------------------------------------
+SQL COMMIT Statement
+COMMIT;
+-------------------------------------------------------------------------------
+SQL ROLLBACK Statement
+ROLLBACK;
+-------------------------------------------------------------------------------
+
+SQL - DATA TYPES
+
+SQL Data Type is an attribute that specifies the type of data of any object. Each column, variable and expression has a related data type in SQL. You can use these data types while creating your tables. You can choose a data type for a table column based on your requirement.
+
+Exact Numeric Data Types
++------------+------------------------------+-----------------------------+
+| DATA TYPE  |             FROM             |             TO              |
++------------+------------------------------+-----------------------------+
+| bigint     | -92,23,37,20,36,85,47,70,000 | 92,23,37,20,36,85,47,70,000 |
+| int        | -2,14,74,83,648              | 2,14,74,83,647              |
+| smallint   | -32,768                      | 32,767                      |
+| tinyint    | 0                            | 255                         |
+| bit        | 0                            | 1                           |
+| decimal    | 1E+38                        | 10^38 -1                    |
+| numeric    | 1E+38                        | 10^38 -1                    |
+| money      | -92,23,37,20,36,85,477.00    | 92,23,37,20,36,85,477.00    |
+| smallmoney | -2,14,748.36                 | 2,14,748.36                 |
++------------+------------------------------+-----------------------------+
+-------------------------------------------------------------------------------
+Approximate Numeric Data Types
++-----------+--------------+-------------+
+| DATA TYPE |     FROM     |     TO      |
++-----------+--------------+-------------+
+| float     | -1.79E + 308 | 1.79E + 308 |
+| real      | -3.40E + 38  | 3.40E + 38  |
++-----------+--------------+-------------+
+-------------------------------------------------------------------------------
+Date and Time Data Types
++---------------+--------------------------------------+--------------+
+|   DATA TYPE   |                 FROM                 |      TO      |
++---------------+--------------------------------------+--------------+
+| datetime      | Jan 1, 1753                          | Dec 31, 9999 |
+| smalldatetime | Jan 1, 1900                          | Jun 6, 2079  |
+| date          | Stores a date like June 30, 1991     |              |
+| time          | Stores a time of day like 12:30 P.M. |              |
++---------------+--------------------------------------+--------------+
+-------------------------------------------------------------------------------
+Character Strings Data Types
++--------+--------------+------------------------------------------------------------------------------------------------+
+| Sr.No. |  DATA TYPE   |                                          Description                                           |
++--------+--------------+------------------------------------------------------------------------------------------------+
+|      1 | char         | Maximum length of 8,000 characters.( Fixed length non-Unicode characters)                      |
+|      2 | varchar      | Maximum of 8,000 characters.(Variable-length non-Unicode data).                                |
+|      3 | varchar(max) | Maximum length of 2E + 31 characters, Variable-length non-Unicode data (SQL Server 2005 only). |
+|      4 | tex          | Variable-length non-Unicode data with a maximum length of 2,147,483,647 characters.            |
++--------+--------------+------------------------------------------------------------------------------------------------+
+-------------------------------------------------------------------------------
+Unicode Character Strings Data Types
++--------+---------------+----------------------------------------------------------------------------------------+
+| Sr.No. |   DATA TYPE   |                                      Description                                       |
++--------+---------------+----------------------------------------------------------------------------------------+
+|      1 | nchar         | Maximum length of 4,000 characters.( Fixed length Unicode)                             |
+|      2 | nvarchar      | Maximum length of 4,000 characters.(Variable length Unicode)                           |
+|      3 | nvarchar(max) | Maximum length of 2E + 31 characters (SQL Server 2005 only).( Variable length Unicode) |
+|      4 | ntex          | Maximum length of 1,073,741,823 characters. ( Variable length Unicode )                |
++--------+---------------+----------------------------------------------------------------------------------------+
+-------------------------------------------------------------------------------
+Binary Data Types
++--------+----------------+----------------------------------------------------------------------------------------+
+| Sr.No. |   DATA TYPE    |                                      Description                                       |
++--------+----------------+----------------------------------------------------------------------------------------+
+|      1 | binary         | Maximum length of 8,000 bytes(Fixed-length binary data )                               |
+|      2 | varbinary      | Maximum length of 8,000 bytes.(Variable length binary data)                            |
+|      3 | varbinary(max) | Maximum length of 2E + 31 bytes (SQL Server 2005 only). ( Variable length Binary data) |
+|      4 | image          | Maximum length of 2,147,483,647 bytes. ( Variable length Binary Data)                  |
++--------+----------------+----------------------------------------------------------------------------------------+
+-------------------------------------------------------------------------------
+Misc Data Types
++--------+------------------+------------------------------------------------------------------------------------------------+
+| Sr.No. |    DATA TYPE     |                                          Description                                           |
++--------+------------------+------------------------------------------------------------------------------------------------+
+|      1 | sql_variant      | Stores values of various SQL Server-supported data types, except text, ntext, and timestamp.   |
+|      2 | timestamp        | Stores a database-wide unique number that gets updated every time a row gets updated           |
+|      3 | uniqueidentifier | Stores a globally unique identifier (GUID)                                                     |
+|      4 | xml              | Stores XML data. You can store xml instances in a column or a variable (SQL Server 2005 only). |
+|      5 | cursor           | Reference to a cursor object                                                                   |
+|      6 | table            | Stores a result set for later processing                                                       |
++--------+------------------+------------------------------------------------------------------------------------------------+
+-------------------------------------------------------------------------------
+SQL - OPERATORS
+
+An operator is a reserved word or a character used primarily in an SQL statement's WHERE clause to perform operation(s), such as comparisons and arithmetic operations. These Operators are used to specify conditions in an SQL statement and to serve as conjunctions for multiple conditions in a statement.
+
+ARITHMETIC OPERATORS
+COMPARISON OPERATORS
+LOGICAL OPERATORS
+
+SQL ARITHMETIC OPERATORS
+
+Assume 'variable a' holds 10 and 'variable b' holds 20, then −
++--------------------+------------------------------------------------------------------------+---------------------+
+|      Operator      |                              Description                               |       Example       |
++--------------------+------------------------------------------------------------------------+---------------------+
+| + (Addition)       | Adds values on either side of the operator.                            | a + b will give 30  |
+| - (Subtraction)    | Subtracts right hand operand from left hand operand.                   | a - b will give -10 |
+| * (Multiplication) | Multiplies values on either side of the operator.                      | a * b will give 200 |
+| / (Division)       | Divides left hand operand by right hand operand.                       | b / a will give 2   |
+| % (Modulus)        | Divides left hand operand by right hand operand and returns remainder. | b % a will give 0   |
++--------------------+------------------------------------------------------------------------+---------------------+
+-------------------------------------------------------------------------------
+SQL COMPARISON OPERATORS
+
+Assume 'variable a' holds 10 and 'variable b' holds 20, then −
++----------+---------------------------------------------------------------------------------------------------------------------------------+-----------------------+
+| Operator |                                                           Description                                                           |        Example        |
++----------+---------------------------------------------------------------------------------------------------------------------------------+-----------------------+
+| =        | Checks if the values of two operands are equal or not, if yes then condition becomes true.                                      | (a = b) is not true.  |
+| !=       | Checks if the values of two operands are equal or not, if values are not equal then condition becomes true.                     | (a != b) is true.     |
+| <>       | Checks if the values of two operands are equal or not, if values are not equal then condition becomes true.                     | (a <> b) is true.     |
+| >        | Checks if the value of left operand is greater than the value of right operand, if yes then condition becomes true.             | (a > b) is not true.  |
+| <        | Checks if the value of left operand is less than the value of right operand, if yes then condition becomes true.                | (a < b) is true.      |
+| >=       | Checks if the value of left operand is greater than or equal to the value of right operand, if yes then condition becomes true. | (a >= b) is not true. |
+| <=       | Checks if the value of left operand is less than or equal to the value of right operand, if yes then condition becomes true.    | (a <= b) is true.     |
+| !<       | Checks if the value of left operand is not less than the value of right operand, if yes then condition becomes true.            | (a !< b) is false.    |
+| !>       | Checks if the value of left operand is not greater than the value of right operand, if yes then condition becomes true.         | (a !> b) is true.     |
++----------+---------------------------------------------------------------------------------------------------------------------------------+-----------------------+
+-------------------------------------------------------------------------------
+SQL LOGICAL OPERATORS
+
++--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Sr.No. | Operator |                                                                        Description                                                                        |
++--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+|      1 | ALL      | The ALL operator is used to compare a value to all values in another value set.                                                                           |
+|      2 | AND      | The AND operator allows the existence of multiple conditions in an SQL statement's WHERE clause.                                                          |
+|      3 | ANY      | The ANY operator is used to compare a value to any applicable value in the list as per the condition.                                                     |
+|      4 | BETWEEN  | The BETWEEN operator is used to search for values that are within a set of values, given the minimum value and the maximum value.                         |
+|      5 | EXISTS   | The EXISTS operator is used to search for the presence of a row in a specified table that meets a certain criterion.                                      |
+|      6 | IN       | The IN operator is used to compare a value to a list of literal values that have been specified.                                                          |
+|      7 | LIKE     | The LIKE operator is used to compare a value to similar values using wildcard operators.                                                                  |
+|      8 | NOT      | The NOT operator reverses the meaning of the logical operator with which it is used. Eg: NOT EXISTS, NOT BETWEEN, NOT IN, etc. This is a negate operator. |
+|      9 | OR       | The OR operator is used to combine multiple conditions in an SQL statement's WHERE clause.                                                                |
+|     10 | IS NULL  | The NULL operator is used to compare a value with a NULL value.                                                                                           |
+|     11 | UNIQUE   | The UNIQUE operator searches every row of a specified table for uniqueness (no duplicates).                                                               |
++--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+-------------------------------------------------------------------------------
+SQL - CREATE DATABASE
+
+The SQL CREATE DATABASE statement is used to create a new SQL database.
+
+Syntax
+The basic syntax of this CREATE DATABASE statement is as follows −
+
+CREATE DATABASE DatabaseName;
+
+Always the database name should be unique within the RDBMS.
+
+Use SHOW DATABASES to view the existing available databases.
+-------------------------------------------------------------------------------
+SQL - DROP OR DELETE DATABASE
+
+The SQL DROP DATABASE statement is used to drop an existing database in SQL schema.
+
+Syntax
+The basic syntax of DROP DATABASE statement is as follows −
+
+DROP DATABASE DATABASENAME;
+-------------------------------------------------------------------------------
+SQL - SELECT DATABASE, USE STATEMENT
+
+When you have multiple databases in your SQL Schema, then before starting your operation, you would need to select a database where all the operations would be performed.
+
+The SQL USE statement is used to select any existing database in the SQL schema.
+
+Syntax
+The basic syntax of the USE statement is as shown below −
+
+USE DatabaseName;
+-------------------------------------------------------------------------------
+SQL - CREATE TABLE
+
+Creating a basic table involves naming the table and defining its columns and each column's data type.
+
+The SQL CREATE TABLE statement is used to create a new table.
+
+Syntax
+The basic syntax of the CREATE TABLE statement is as follows −
+
+CREATE TABLE table_name(
+   column1 datatype,
+   column2 datatype,
+   column3 datatype,
+   .....
+   columnN datatype,
+   PRIMARY KEY( one or more columns )
+);
+
+CREATE TABLE is the keyword telling the database system what you want to do. In this case, you want to create a new table. The unique name or identifier for the table follows the CREATE TABLE statement.
+
+Then in brackets comes the list defining each column in the table and what sort of data type it is. The syntax becomes clearer with the following example.
+
+Example
+The following code block is an example, which creates a CUSTOMERS table with an ID as a primary key and NOT NULL are the constraints showing that these fields cannot be NULL while creating records in this table −
+
+SQL> CREATE TABLE CUSTOMERS(
+   ID   INT              NOT NULL,
+   NAME VARCHAR (20)     NOT NULL,
+   AGE  INT              NOT NULL,
+   ADDRESS  CHAR (25) ,
+   SALARY   DECIMAL (18, 2),       
+   PRIMARY KEY (ID)
+);
+
+You can verify if your table has been created successfully by looking at the message displayed by the SQL server, otherwise you can use the DESC command as follows −
+
+SQL> DESC CUSTOMERS;
++---------+---------------+------+-----+---------+-------+
+| Field   | Type          | Null | Key | Default | Extra |
++---------+---------------+------+-----+---------+-------+
+| ID      | int(11)       | NO   | PRI |         |       |
+| NAME    | varchar(20)   | NO   |     |         |       |
+| AGE     | int(11)       | NO   |     |         |       |
+| ADDRESS | char(25)      | YES  |     | NULL    |       |
+| SALARY  | decimal(18,2) | YES  |     | NULL    |       |
++---------+---------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+Now, you have CUSTOMERS table available in your database which you can use to store the required information related to customers.
+
+-------------------------------------------------------------------------------
+SQL - DROP OR DELETE TABLE
+
+The SQL DROP TABLE statement is used to remove a table definition and all the data, indexes, triggers, constraints and permission specifications for that table.
+
+NOTE − You should be very careful while using this command because once a table is deleted then all the information available in that table will also be lost forever.
+
+Syntax
+The basic syntax of this DROP TABLE statement is as follows −
+
+DROP TABLE table_name;
+
+Example
+Let us first verify the CUSTOMERS table and then we will delete it from the database as shown below −
+
+SQL> DESC CUSTOMERS;
++---------+---------------+------+-----+---------+-------+
+| Field   | Type          | Null | Key | Default | Extra |
++---------+---------------+------+-----+---------+-------+
+| ID      | int(11)       | NO   | PRI |         |       |
+| NAME    | varchar(20)   | NO   |     |         |       |
+| AGE     | int(11)       | NO   |     |         |       |
+| ADDRESS | char(25)      | YES  |     | NULL    |       |
+| SALARY  | decimal(18,2) | YES  |     | NULL    |       |
++---------+---------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+This means that the CUSTOMERS table is available in the database, so let us now drop it as shown below.
+
+SQL> DROP TABLE CUSTOMERS;
+Query OK, 0 rows affected (0.01 sec)
+
+Now, if you would try the DESC command, then you will get the following error −
+
+SQL> DESC CUSTOMERS;
+ERROR 1146 (42S02): Table 'TEST.CUSTOMERS' doesn't exist
+
+Here, TEST is the database name which we are using for our examples.
+-------------------------------------------------------------------------------
+SQL - INSERT QUERY
+
+The SQL INSERT INTO Statement is used to add new rows of data to a table in the database.
+
+Syntax
+There are two basic syntaxes of the INSERT INTO statement which are shown below.
+
+INSERT INTO TABLE_NAME (column1, column2, column3,...columnN)  
+VALUES (value1, value2, value3,...valueN);
+Here, column1, column2, column3,...columnN are the names of the columns in the table into which you want to insert the data.
+
+You may not need to specify the column(s) name in the SQL query if you are adding values for all the columns of the table. But make sure the order of the values is in the same order as the columns in the table.
+
+The SQL INSERT INTO syntax will be as follows −
+
+INSERT INTO TABLE_NAME VALUES (value1,value2,value3,...valueN);
+
+Example
+The following statements would create six records in the CUSTOMERS table.
+
+INSERT INTO CUSTOMERS (ID,NAME,AGE,ADDRESS,SALARY)
+VALUES (1, 'Ramesh', 32, 'Ahmedabad', 2000.00 );
+
+INSERT INTO CUSTOMERS (ID,NAME,AGE,ADDRESS,SALARY)
+VALUES (2, 'Khilan', 25, 'Delhi', 1500.00 );
+
+INSERT INTO CUSTOMERS (ID,NAME,AGE,ADDRESS,SALARY)
+VALUES (3, 'kaushik', 23, 'Kota', 2000.00 );
+
+INSERT INTO CUSTOMERS (ID,NAME,AGE,ADDRESS,SALARY)
+VALUES (4, 'Chaitali', 25, 'Mumbai', 6500.00 );
+
+INSERT INTO CUSTOMERS (ID,NAME,AGE,ADDRESS,SALARY)
+VALUES (5, 'Hardik', 27, 'Bhopal', 8500.00 );
+
+INSERT INTO CUSTOMERS (ID,NAME,AGE,ADDRESS,SALARY)
+VALUES (6, 'Komal', 22, 'MP', 4500.00 );
+
+You can create a record in the CUSTOMERS table by using the second syntax as shown below.
+
+INSERT INTO CUSTOMERS 
+VALUES (7, 'Muffy', 24, 'Indore', 10000.00 );
+
+All the above statements would produce the following records in the CUSTOMERS table as shown below.
+
++----+----------+-----+-----------+----------+
+| ID | NAME     | AGE | ADDRESS   | SALARY   |
++----+----------+-----+-----------+----------+
+|  1 | Ramesh   |  32 | Ahmedabad |  2000.00 |
+|  2 | Khilan   |  25 | Delhi     |  1500.00 |
+|  3 | kaushik  |  23 | Kota      |  2000.00 |
+|  4 | Chaitali |  25 | Mumbai    |  6500.00 |
+|  5 | Hardik   |  27 | Bhopal    |  8500.00 |
+|  6 | Komal    |  22 | MP        |  4500.00 |
+|  7 | Muffy    |  24 | Indore    | 10000.00 |
++----+----------+-----+-----------+----------+
+
+Populate one table using another table
+You can populate the data into a table through the select statement over another table; provided the other table has a set of fields, which are required to populate the first table.
+
+Here is the syntax −
+
+INSERT INTO first_table_name [(column1, column2, ... columnN)] 
+   SELECT column1, column2, ...columnN 
+   FROM second_table_name
+   [WHERE condition];
+-------------------------------------------------------------------------------
+SQL - SELECT QUERY
+
+The SQL SELECT statement is used to fetch the data from a database table which returns this data in the form of a result table. These result tables are called result-sets.
+
+Syntax
+The basic syntax of the SELECT statement is as follows −
+
+SELECT column1, column2, columnN FROM table_name;
+
+Here, column1, column2... are the fields of a table whose values you want to fetch. If you want to fetch all the fields available in the field, then you can use the following syntax.
+
+SELECT * FROM table_name;
+
+Example
+Consider the CUSTOMERS table having the following records −
++----+----------+-----+-----------+----------+
+| ID | NAME     | AGE | ADDRESS   | SALARY   |
++----+----------+-----+-----------+----------+
+|  1 | Ramesh   |  32 | Ahmedabad |  2000.00 |
+|  2 | Khilan   |  25 | Delhi     |  1500.00 |
+|  3 | kaushik  |  23 | Kota      |  2000.00 |
+|  4 | Chaitali |  25 | Mumbai    |  6500.00 |
+|  5 | Hardik   |  27 | Bhopal    |  8500.00 |
+|  6 | Komal    |  22 | MP        |  4500.00 |
+|  7 | Muffy    |  24 | Indore    | 10000.00 |
++----+----------+-----+-----------+----------+
+
+The following code is an example, which would fetch the ID, Name and Salary fields of the customers available in CUSTOMERS table.
+
+SQL> SELECT ID, NAME, SALARY FROM CUSTOMERS;
+
+This would produce the following result −
++----+----------+----------+
+| ID | NAME     | SALARY   |
++----+----------+----------+
+|  1 | Ramesh   |  2000.00 |
+|  2 | Khilan   |  1500.00 |
+|  3 | kaushik  |  2000.00 |
+|  4 | Chaitali |  6500.00 |
+|  5 | Hardik   |  8500.00 |
+|  6 | Komal    |  4500.00 |
+|  7 | Muffy    | 10000.00 |
++----+----------+----------+
+
+If you want to fetch all the fields of the CUSTOMERS table, then you should use the following query.
+
+SQL> SELECT * FROM CUSTOMERS;
+
+This would produce the result as shown below.
++----+----------+-----+-----------+----------+
+| ID | NAME     | AGE | ADDRESS   | SALARY   |
++----+----------+-----+-----------+----------+
+|  1 | Ramesh   |  32 | Ahmedabad |  2000.00 |
+|  2 | Khilan   |  25 | Delhi     |  1500.00 |
+|  3 | kaushik  |  23 | Kota      |  2000.00 |
+|  4 | Chaitali |  25 | Mumbai    |  6500.00 |
+|  5 | Hardik   |  27 | Bhopal    |  8500.00 |
+|  6 | Komal    |  22 | MP        |  4500.00 |
+|  7 | Muffy    |  24 | Indore    | 10000.00 |
++----+----------+-----+-----------+----------+
+
+-------------------------------------------------------------------------------
+ SQL - WHERE CLAUSE
+
+ The SQL WHERE clause is used to specify a condition while fetching the data from a single table or by joining with multiple tables. If the given condition is satisfied, then only it returns a specific value from the table. You should use the WHERE clause to filter the records and fetching only the necessary records.
+
+The WHERE clause is not only used in the SELECT statement, but it is also used in the UPDATE, DELETE statement, etc.,
+
+Syntax
+The basic syntax of the SELECT statement with the WHERE clause is as shown below.
+
+SELECT column1, column2, columnN 
+FROM table_name
+WHERE [condition]
+
+You can specify a condition using the comparison or logical operators like >, <, =, LIKE, NOT, etc. The following examples would make this concept clear.
+
+Example
+Consider the CUSTOMERS table having the following records −
++----+----------+-----+-----------+----------+
+| ID | NAME     | AGE | ADDRESS   | SALARY   |
++----+----------+-----+-----------+----------+
+|  1 | Ramesh   |  32 | Ahmedabad |  2000.00 |
+|  2 | Khilan   |  25 | Delhi     |  1500.00 |
+|  3 | kaushik  |  23 | Kota      |  2000.00 |
+|  4 | Chaitali |  25 | Mumbai    |  6500.00 |
+|  5 | Hardik   |  27 | Bhopal    |  8500.00 |
+|  6 | Komal    |  22 | MP        |  4500.00 |
+|  7 | Muffy    |  24 | Indore    | 10000.00 |
++----+----------+-----+-----------+----------+
+
+The following code is an example which would fetch the ID, Name and Salary fields from the CUSTOMERS table, where the salary is greater than 2000 −
+
+SQL> SELECT ID, NAME, SALARY 
+FROM CUSTOMERS
+WHERE SALARY > 2000;
+
+This would produce the following result −
++----+----------+----------+
+| ID | NAME     | SALARY   |
++----+----------+----------+
+|  4 | Chaitali |  6500.00 |
+|  5 | Hardik   |  8500.00 |
+|  6 | Komal    |  4500.00 |
+|  7 | Muffy    | 10000.00 |
++----+----------+----------+
+
+The following query is an example, which would fetch the ID, Name and Salary fields from the CUSTOMERS table for a customer with the name Hardik.
+
+Here, it is important to note that all the strings should be given inside single quotes (''). Whereas, numeric values should be given without any quote as in the above example.
+
+SQL> SELECT ID, NAME, SALARY 
+FROM CUSTOMERS
+WHERE NAME = 'Hardik';
+
+This would produce the following result −
++----+----------+----------+
+| ID | NAME     | SALARY   |
++----+----------+----------+
+|  5 | Hardik   |  8500.00 |
++----+----------+----------+
+
+-------------------------------------------------------------------------------
+
+SQL - AND AND OR CONJUNCTIVE OPERATORS
+
+The SQL AND & OR operators are used to combine multiple conditions to narrow data in an SQL statement. These two operators are called as the conjunctive operators.
+
+These operators provide a means to make multiple comparisons with different operators in the same SQL statement.
+
+The AND Operator allows the existence of multiple conditions in an SQL statement's WHERE clause.
+
+Syntax
+The basic syntax of the AND operator with a WHERE clause is as follows −
+
+SELECT column1, column2, columnN 
+FROM table_name
+WHERE [condition1] AND [condition2]...AND [conditionN];
+
+You can combine N number of conditions using the AND operator. For an action to be taken by the SQL statement, whether it be a transaction or a query, all conditions separated by the AND must be TRUE.
+
+Example
+Consider the CUSTOMERS table having the following records −
++----+----------+-----+-----------+----------+
+| ID | NAME     | AGE | ADDRESS   | SALARY   |
++----+----------+-----+-----------+----------+
+|  1 | Ramesh   |  32 | Ahmedabad |  2000.00 |
+|  2 | Khilan   |  25 | Delhi     |  1500.00 |
+|  3 | kaushik  |  23 | Kota      |  2000.00 |
+|  4 | Chaitali |  25 | Mumbai    |  6500.00 |
+|  5 | Hardik   |  27 | Bhopal    |  8500.00 |
+|  6 | Komal    |  22 | MP        |  4500.00 |
+|  7 | Muffy    |  24 | Indore    | 10000.00 |
++----+----------+-----+-----------+----------+
+
+Following is an example, which would fetch the ID, Name and Salary fields from the CUSTOMERS table, where the salary is greater than 2000 and the age is less than 25 years −
+
+SQL> SELECT ID, NAME, SALARY 
+FROM CUSTOMERS
+WHERE SALARY > 2000 AND age < 25;
+
+This would produce the following result −
++----+-------+----------+
+| ID | NAME  | SALARY   |
++----+-------+----------+
+|  6 | Komal |  4500.00 |
+|  7 | Muffy | 10000.00 |
++----+-------+----------+
+
+-------------------------------------------------------------------------------
+
+THE OR OPERATOR
+The OR operator is used to combine multiple conditions in an SQL statement's WHERE clause.
+
+Syntax
+The basic syntax of the OR operator with a WHERE clause is as follows −
+
+SELECT column1, column2, columnN 
+FROM table_name
+WHERE [condition1] OR [condition2]...OR [conditionN]
+
+You can combine N number of conditions using the OR operator. For an action to be taken by the SQL statement, whether it be a transaction or query, the only any ONE of the conditions separated by the OR must be TRUE.
+
+Example
+Consider the CUSTOMERS table having the following records −
++----+----------+-----+-----------+----------+
+| ID | NAME     | AGE | ADDRESS   | SALARY   |
++----+----------+-----+-----------+----------+
+|  1 | Ramesh   |  32 | Ahmedabad |  2000.00 |
+|  2 | Khilan   |  25 | Delhi     |  1500.00 |
+|  3 | kaushik  |  23 | Kota      |  2000.00 |
+|  4 | Chaitali |  25 | Mumbai    |  6500.00 |
+|  5 | Hardik   |  27 | Bhopal    |  8500.00 |
+|  6 | Komal    |  22 | MP        |  4500.00 |
+|  7 | Muffy    |  24 | Indore    | 10000.00 |
++----+----------+-----+-----------+----------+
+
+The following code block hasa query, which would fetch the ID, Name and Salary fields from the CUSTOMERS table, where the salary is greater than 2000 OR the age is less than 25 years.
+
+SQL> SELECT ID, NAME, SALARY 
+FROM CUSTOMERS
+WHERE SALARY > 2000 OR age < 25;
+
+This would produce the following result −
++----+----------+----------+
+| ID | NAME     | SALARY   |
++----+----------+----------+
+|  3 | kaushik  |  2000.00 |
+|  4 | Chaitali |  6500.00 |
+|  5 | Hardik   |  8500.00 |
+|  6 | Komal    |  4500.00 |
+|  7 | Muffy    | 10000.00 |
++----+----------+----------+
+
+-------------------------------------------------------------------------------
+
+SQL - UPDATE QUERY
+
+The SQL UPDATE Query is used to modify the existing records in a table. You can use the WHERE clause with the UPDATE query to update the selected rows, otherwise all the rows would be affected.
+
+Syntax
+The basic syntax of the UPDATE query with a WHERE clause is as follows −
+
+UPDATE table_name
+SET column1 = value1, column2 = value2...., columnN = valueN
+WHERE [condition];
+
+You can combine N number of conditions using the AND or the OR operators.
+
+Example
+Consider the CUSTOMERS table having the following records −
++----+----------+-----+-----------+----------+
+| ID | NAME     | AGE | ADDRESS   | SALARY   |
++----+----------+-----+-----------+----------+
+|  1 | Ramesh   |  32 | Ahmedabad |  2000.00 |
+|  2 | Khilan   |  25 | Delhi     |  1500.00 |
+|  3 | kaushik  |  23 | Kota      |  2000.00 |
+|  4 | Chaitali |  25 | Mumbai    |  6500.00 |
+|  5 | Hardik   |  27 | Bhopal    |  8500.00 |
+|  6 | Komal    |  22 | MP        |  4500.00 |
+|  7 | Muffy    |  24 | Indore    | 10000.00 |
++----+----------+-----+-----------+----------+
+
+The following query will update the ADDRESS for a customer whose ID number is 6 in the table.
+
+SQL> UPDATE CUSTOMERS
+SET ADDRESS = 'Pune'
+WHERE ID = 6;
+
+Now, the CUSTOMERS table would have the following records −
++----+----------+-----+-----------+----------+
+| ID | NAME     | AGE | ADDRESS   | SALARY   |
++----+----------+-----+-----------+----------+
+|  1 | Ramesh   |  32 | Ahmedabad |  2000.00 |
+|  2 | Khilan   |  25 | Delhi     |  1500.00 |
+|  3 | kaushik  |  23 | Kota      |  2000.00 |
+|  4 | Chaitali |  25 | Mumbai    |  6500.00 |
+|  5 | Hardik   |  27 | Bhopal    |  8500.00 |
+|  6 | Komal    |  22 | Pune      |  4500.00 |
+|  7 | Muffy    |  24 | Indore    | 10000.00 |
++----+----------+-----+-----------+----------+
+
+If you want to modify all the ADDRESS and the SALARY column values in the CUSTOMERS table, you do not need to use the WHERE clause as the UPDATE query would be enough as shown in the following code block.
+
+SQL> UPDATE CUSTOMERS
+SET ADDRESS = 'Pune', SALARY = 1000.00;
+
+Now, CUSTOMERS table would have the following records −
++----+----------+-----+---------+---------+
+| ID | NAME     | AGE | ADDRESS | SALARY  |
++----+----------+-----+---------+---------+
+|  1 | Ramesh   |  32 | Pune    | 1000.00 |
+|  2 | Khilan   |  25 | Pune    | 1000.00 |
+|  3 | kaushik  |  23 | Pune    | 1000.00 |
+|  4 | Chaitali |  25 | Pune    | 1000.00 |
+|  5 | Hardik   |  27 | Pune    | 1000.00 |
+|  6 | Komal    |  22 | Pune    | 1000.00 |
+|  7 | Muffy    |  24 | Pune    | 1000.00 |
++----+----------+-----+---------+---------+
+
+-------------------------------------------------------------------------------
+
+SQL - DELETE QUERY
+
+The SQL DELETE Query is used to delete the existing records from a table.
+
+You can use the WHERE clause with a DELETE query to delete the selected rows, otherwise all the records would be deleted.
+
+Syntax
+The basic syntax of the DELETE query with the WHERE clause is as follows −
+
+DELETE FROM table_name
+WHERE [condition];
+
+You can combine N number of conditions using AND or OR operators.
+
+Example
+Consider the CUSTOMERS table having the following records −
++----+----------+-----+-----------+----------+
+| ID | NAME     | AGE | ADDRESS   | SALARY   |
++----+----------+-----+-----------+----------+
+|  1 | Ramesh   |  32 | Ahmedabad |  2000.00 |
+|  2 | Khilan   |  25 | Delhi     |  1500.00 |
+|  3 | kaushik  |  23 | Kota      |  2000.00 |
+|  4 | Chaitali |  25 | Mumbai    |  6500.00 |
+|  5 | Hardik   |  27 | Bhopal    |  8500.00 |
+|  6 | Komal    |  22 | MP        |  4500.00 |
+|  7 | Muffy    |  24 | Indore    | 10000.00 |
++----+----------+-----+-----------+----------+
+
+The following code has a query, which will DELETE a customer, whose ID is 6.
+
+SQL> DELETE FROM CUSTOMERS
+WHERE ID = 6;
+
+Now, the CUSTOMERS table would have the following records.
++----+----------+-----+-----------+----------+
+| ID | NAME     | AGE | ADDRESS   | SALARY   |
++----+----------+-----+-----------+----------+
+|  1 | Ramesh   |  32 | Ahmedabad |  2000.00 |
+|  2 | Khilan   |  25 | Delhi     |  1500.00 |
+|  3 | kaushik  |  23 | Kota      |  2000.00 |
+|  4 | Chaitali |  25 | Mumbai    |  6500.00 |
+|  5 | Hardik   |  27 | Bhopal    |  8500.00 |
+|  7 | Muffy    |  24 | Indore    | 10000.00 |
++----+----------+-----+-----------+----------+
+
+If you want to DELETE all the records from the CUSTOMERS table, you do not need to use the WHERE clause and the DELETE query would be as follows −
+
+SQL> DELETE FROM CUSTOMERS;
+
+Now, the CUSTOMERS table would not have any record.
+
+-------------------------------------------------------------------------------
+
+SQL - LIKE CLAUSE
+
+The SQL LIKE clause is used to compare a value to similar values using wildcard operators. There are two wildcards used in conjunction with the LIKE operator.
+
+The percent sign (%)
+The underscore (_)
+
+The percent sign represents zero, one or multiple characters. The underscore represents a single number or character. These symbols can be used in combinations.
+
+Syntax
+The basic syntax of % and _ is as follows −
+
+SELECT FROM table_name
+WHERE column LIKE 'XXXX%'
+or 
+SELECT FROM table_name
+WHERE column LIKE '%XXXX%'
+or
+SELECT FROM table_name
+WHERE column LIKE 'XXXX_'
+or
+SELECT FROM table_name
+WHERE column LIKE '_XXXX'
+or
+SELECT FROM table_name
+WHERE column LIKE '_XXXX_'
+
+You can combine N number of conditions using AND or OR operators. Here, XXXX could be any numeric or string value.
+
++--------+---------------------------+-----------------------------------------------------------------------------+
+| Sr.No. |         Statement         |                                 Description                                 |
++--------+---------------------------+-----------------------------------------------------------------------------+
+|      1 | WHERE SALARY LIKE '200%'  | Finds any values that start with 200.                                       |
+|      2 | WHERE SALARY LIKE '%200%' | Finds any values that have 200 in any position.                             |
+|      3 | WHERE SALARY LIKE '_00%'  | Finds any values that have 00 in the second and third positions.            |
+|      4 | WHERE SALARY LIKE '2_%_%' | Finds any values that start with 2 and are at least 3 characters in length. |
+|      5 | WHERE SALARY LIKE '%2'    | Finds any values that end with 2.                                           |
+|      6 | WHERE SALARY LIKE '_2%3'  | Finds any values that have a 2 in the second position and end with a 3.     |
+|      7 | WHERE SALARY LIKE '2___3' | Finds any values in a five-digit number that start with 2 and end with 3    |
++--------+---------------------------+-----------------------------------------------------------------------------+
+
+Let us take a real example, consider the CUSTOMERS table having the records as shown below.
+
++----+----------+-----+-----------+----------+
+| ID | NAME     | AGE | ADDRESS   | SALARY   |
++----+----------+-----+-----------+----------+
+|  1 | Ramesh   |  32 | Ahmedabad |  2000.00 |
+|  2 | Khilan   |  25 | Delhi     |  1500.00 |
+|  3 | kaushik  |  23 | Kota      |  2000.00 |
+|  4 | Chaitali |  25 | Mumbai    |  6500.00 |
+|  5 | Hardik   |  27 | Bhopal    |  8500.00 |
+|  6 | Komal    |  22 | MP        |  4500.00 |
+|  7 | Muffy    |  24 | Indore    | 10000.00 |
++----+----------+-----+-----------+----------+
+
+Following is an example, which would display all the records from the CUSTOMERS table, where the SALARY starts with 200.
+
+SQL> SELECT * FROM CUSTOMERS
+WHERE SALARY LIKE '200%';
+
+This would produce the following result −
++----+----------+-----+-----------+----------+
+| ID | NAME     | AGE | ADDRESS   | SALARY   |
++----+----------+-----+-----------+----------+
+|  1 | Ramesh   |  32 | Ahmedabad |  2000.00 |
+|  3 | kaushik  |  23 | Kota      |  2000.00 |
++----+----------+-----+-----------+----------+
+
+-------------------------------------------------------------------------------
+
+SQL - TOP, LIMIT OR ROWNUM CLAUSE
+
+The SQL TOP clause is used to fetch a TOP N number or X percent records from a table.
+
+Note − All the databases do not support the TOP clause. For example MySQL supports the LIMIT clause to fetch limited number of records while Oracle uses the ROWNUM command to fetch a limited number of records.
+
+Syntax
+The basic syntax of the TOP clause with a SELECT statement would be as follows.
+
+SELECT TOP number|percent column_name(s)
+FROM table_name
+WHERE [condition]
+
+Example
+Consider the CUSTOMERS table having the following records −
++----+----------+-----+-----------+----------+
+| ID | NAME     | AGE | ADDRESS   | SALARY   |
++----+----------+-----+-----------+----------+
+|  1 | Ramesh   |  32 | Ahmedabad |  2000.00 |
+|  2 | Khilan   |  25 | Delhi     |  1500.00 |
+|  3 | kaushik  |  23 | Kota      |  2000.00 |
+|  4 | Chaitali |  25 | Mumbai    |  6500.00 |
+|  5 | Hardik   |  27 | Bhopal    |  8500.00 |
+|  6 | Komal    |  22 | MP        |  4500.00 |
+|  7 | Muffy    |  24 | Indore    | 10000.00 |
++----+----------+-----+-----------+----------+
+
+The following query is an example on the SQL server, which would fetch the top 3 records from the CUSTOMERS table.
+
+SQL> SELECT TOP 3 * FROM CUSTOMERS;
+
+This would produce the following result −
++----+---------+-----+-----------+---------+
+| ID | NAME    | AGE | ADDRESS   | SALARY  |
++----+---------+-----+-----------+---------+
+|  1 | Ramesh  |  32 | Ahmedabad | 2000.00 |
+|  2 | Khilan  |  25 | Delhi     | 1500.00 |
+|  3 | kaushik |  23 | Kota      | 2000.00 |
++----+---------+-----+-----------+---------+
+
+If you are using MySQL server, then here is an equivalent example −
+
+SQL> SELECT * FROM CUSTOMERS
+LIMIT 3;
+
+This would produce the following result −
++----+---------+-----+-----------+---------+
+| ID | NAME    | AGE | ADDRESS   | SALARY  |
++----+---------+-----+-----------+---------+
+|  1 | Ramesh  |  32 | Ahmedabad | 2000.00 |
+|  2 | Khilan  |  25 | Delhi     | 1500.00 |
+|  3 | kaushik |  23 | Kota      | 2000.00 |
++----+---------+-----+-----------+---------+
+
+If you are using an Oracle server, then the following code block has an equivalent example.
+
+SQL> SELECT * FROM CUSTOMERS
+WHERE ROWNUM <= 3;
+
+This would produce the following result −
++----+---------+-----+-----------+---------+
+| ID | NAME    | AGE | ADDRESS   | SALARY  |
++----+---------+-----+-----------+---------+
+|  1 | Ramesh  |  32 | Ahmedabad | 2000.00 |
+|  2 | Khilan  |  25 | Delhi     | 1500.00 |
+|  3 | kaushik |  23 | Kota      | 2000.00 |
++----+---------+-----+-----------+---------+
+
+-------------------------------------------------------------------------------
+
+SQL - ORDER BY CLAUSE
+
+The SQL ORDER BY clause is used to sort the data in ascending or descending order, based on one or more columns. Some databases sort the query results in an ascending order by default.
+
+Syntax
+The basic syntax of the ORDER BY clause is as follows −
+
+SELECT column-list 
+FROM table_name 
+[WHERE condition] 
+[ORDER BY column1, column2, .. columnN] [ASC | DESC];
+
+You can use more than one column in the ORDER BY clause. Make sure whatever column you are using to sort that column should be in the column-list.
+
+Example
+Consider the CUSTOMERS table having the following records −
++----+----------+-----+-----------+----------+
+| ID | NAME     | AGE | ADDRESS   | SALARY   |
++----+----------+-----+-----------+----------+
+|  1 | Ramesh   |  32 | Ahmedabad |  2000.00 |
+|  2 | Khilan   |  25 | Delhi     |  1500.00 |
+|  3 | kaushik  |  23 | Kota      |  2000.00 |
+|  4 | Chaitali |  25 | Mumbai    |  6500.00 |
+|  5 | Hardik   |  27 | Bhopal    |  8500.00 |
+|  6 | Komal    |  22 | MP        |  4500.00 |
+|  7 | Muffy    |  24 | Indore    | 10000.00 |
++----+----------+-----+-----------+----------+
+
+The following code block has an example, which would sort the result in an ascending order by the NAME and the SALARY −
+
+SQL> SELECT * FROM CUSTOMERS
+   ORDER BY NAME, SALARY;
+   
+This would produce the following result −
++----+----------+-----+-----------+----------+
+| ID | NAME     | AGE | ADDRESS   | SALARY   |
++----+----------+-----+-----------+----------+
+|  4 | Chaitali |  25 | Mumbai    |  6500.00 |
+|  5 | Hardik   |  27 | Bhopal    |  8500.00 |
+|  3 | kaushik  |  23 | Kota      |  2000.00 |
+|  2 | Khilan   |  25 | Delhi     |  1500.00 |
+|  6 | Komal    |  22 | MP        |  4500.00 |
+|  7 | Muffy    |  24 | Indore    | 10000.00 |
+|  1 | Ramesh   |  32 | Ahmedabad |  2000.00 |
++----+----------+-----+-----------+----------+
+
+The following code block has an example, which would sort the result in the descending order by NAME.
+
+SQL> SELECT * FROM CUSTOMERS
+   ORDER BY NAME DESC;
+
+This would produce the following result −
++----+----------+-----+-----------+----------+
+| ID | NAME     | AGE | ADDRESS   | SALARY   |
++----+----------+-----+-----------+----------+
+|  1 | Ramesh   |  32 | Ahmedabad |  2000.00 |
+|  7 | Muffy    |  24 | Indore    | 10000.00 |
+|  6 | Komal    |  22 | MP        |  4500.00 |
+|  2 | Khilan   |  25 | Delhi     |  1500.00 |
+|  3 | kaushik  |  23 | Kota      |  2000.00 |
+|  5 | Hardik   |  27 | Bhopal    |  8500.00 |
+|  4 | Chaitali |  25 | Mumbai    |  6500.00 |
++----+----------+-----+-----------+----------+
+
+-------------------------------------------------------------------------------
+
+SQL - GROUP BY
+
+The SQL GROUP BY clause is used in collaboration with the SELECT statement to arrange identical data into groups. This GROUP BY clause follows the WHERE clause in a SELECT statement and precedes the ORDER BY clause.
+
+Syntax
+The basic syntax of a GROUP BY clause is shown in the following code block. The GROUP BY clause must follow the conditions in the WHERE clause and must precede the ORDER BY clause if one is used.
+
+SELECT column1, column2
+FROM table_name
+WHERE [ conditions ]
+GROUP BY column1, column2
+ORDER BY column1, column2
+
+Example
+Consider the CUSTOMERS table is having the following records −
++----+----------+-----+-----------+----------+
+| ID | NAME     | AGE | ADDRESS   | SALARY   |
++----+----------+-----+-----------+----------+
+|  1 | Ramesh   |  32 | Ahmedabad |  2000.00 |
+|  2 | Khilan   |  25 | Delhi     |  1500.00 |
+|  3 | kaushik  |  23 | Kota      |  2000.00 |
+|  4 | Chaitali |  25 | Mumbai    |  6500.00 |
+|  5 | Hardik   |  27 | Bhopal    |  8500.00 |
+|  6 | Komal    |  22 | MP        |  4500.00 |
+|  7 | Muffy    |  24 | Indore    | 10000.00 |
++----+----------+-----+-----------+----------+
+
+If you want to know the total amount of the salary on each customer, then the GROUP BY query would be as follows.
+
+SQL> SELECT NAME, SUM(SALARY) FROM CUSTOMERS
+   GROUP BY NAME;
+
+This would produce the following result −
++----------+-------------+
+| NAME     | SUM(SALARY) |
++----------+-------------+
+| Chaitali |     6500.00 |
+| Hardik   |     8500.00 |
+| kaushik  |     2000.00 |
+| Khilan   |     1500.00 |
+| Komal    |     4500.00 |
+| Muffy    |    10000.00 |
+| Ramesh   |     2000.00 |
++----------+-------------+
+
+Now, let us look at a table where the CUSTOMERS table has the following records with duplicate names −
+
++----+----------+-----+-----------+----------+
+| ID | NAME     | AGE | ADDRESS   | SALARY   |
++----+----------+-----+-----------+----------+
+|  1 | Ramesh   |  32 | Ahmedabad |  2000.00 |
+|  2 | Ramesh   |  25 | Delhi     |  1500.00 |
+|  3 | kaushik  |  23 | Kota      |  2000.00 |
+|  4 | kaushik  |  25 | Mumbai    |  6500.00 |
+|  5 | Hardik   |  27 | Bhopal    |  8500.00 |
+|  6 | Komal    |  22 | MP        |  4500.00 |
+|  7 | Muffy    |  24 | Indore    | 10000.00 |
++----+----------+-----+-----------+----------+
+Now again, if you want to know the total amount of salary on each customer, then the GROUP BY query would be as follows −
+
+SQL> SELECT NAME, SUM(SALARY) FROM CUSTOMERS
+   GROUP BY NAME;
+
+This would produce the following result −
++---------+-------------+
+| NAME    | SUM(SALARY) |
++---------+-------------+
+| Hardik  |     8500.00 |
+| kaushik |     8500.00 |
+| Komal   |     4500.00 |
+| Muffy   |    10000.00 |
+| Ramesh  |     3500.00 |
++---------+-------------+
+
+-------------------------------------------------------------------------------
+
+SQL - DISTINCT KEYWORD
+
+The SQL DISTINCT keyword is used in conjunction with the SELECT statement to eliminate all the duplicate records and fetching only unique records.
+
+There may be a situation when you have multiple duplicate records in a table. While fetching such records, it makes more sense to fetch only those unique records instead of fetching duplicate records.
+
+Syntax
+The basic syntax of DISTINCT keyword to eliminate the duplicate records is as follows −
+
+SELECT DISTINCT column1, column2,.....columnN 
+FROM table_name
+WHERE [condition]
+
+Example
+Consider the CUSTOMERS table having the following records −
++----+----------+-----+-----------+----------+
+| ID | NAME     | AGE | ADDRESS   | SALARY   |
++----+----------+-----+-----------+----------+
+|  1 | Ramesh   |  32 | Ahmedabad |  2000.00 |
+|  2 | Khilan   |  25 | Delhi     |  1500.00 |
+|  3 | kaushik  |  23 | Kota      |  2000.00 |
+|  4 | Chaitali |  25 | Mumbai    |  6500.00 |
+|  5 | Hardik   |  27 | Bhopal    |  8500.00 |
+|  6 | Komal    |  22 | MP        |  4500.00 |
+|  7 | Muffy    |  24 | Indore    | 10000.00 |
++----+----------+-----+-----------+----------+
+
+First, let us see how the following SELECT query returns the duplicate salary records.
+
+SQL> SELECT SALARY FROM CUSTOMERS
+   ORDER BY SALARY;
+
+This would produce the following result, where the salary (2000) is coming twice which is a duplicate record from the original table.
++----------+
+| SALARY   |
++----------+
+|  1500.00 |
+|  2000.00 |
+|  2000.00 |
+|  4500.00 |
+|  6500.00 |
+|  8500.00 |
+| 10000.00 |
++----------+
+
+Now, let us use the DISTINCT keyword with the above SELECT query and then see the result.
+
+SQL> SELECT DISTINCT SALARY FROM CUSTOMERS
+   ORDER BY SALARY;
+
+This would produce the following result where we do not have any duplicate entry.
++----------+
+| SALARY   |
++----------+
+|  1500.00 |
+|  2000.00 |
+|  4500.00 |
+|  6500.00 |
+|  8500.00 |
+| 10000.00 |
++----------+
+
+-------------------------------------------------------------------------------
+
+SQL - UNIONS CLAUSE
+
+The SQL UNION clause/operator is used to combine the results of two or more SELECT statements without returning any duplicate rows.
+
+To use this UNION clause, each SELECT statement must have
+
+The same number of columns selected
+The same number of column expressions
+The same data type and
+Have them in the same order
+But they need not have to be in the same length.
+
+Syntax
+The basic syntax of a UNION clause is as follows −
+
+SELECT column1 [, column2 ]
+FROM table1 [, table2 ]
+[WHERE condition]
+UNION
+SELECT column1 [, column2 ]
+FROM table1 [, table2 ]
+[WHERE condition]
+
+Here, the given condition could be any given expression based on your requirement.
+
+Example
+Consider the following two tables.
+
+Table 1 − CUSTOMERS Table is as follows.
++----+----------+-----+-----------+----------+
+| ID | NAME     | AGE | ADDRESS   | SALARY   |
++----+----------+-----+-----------+----------+
+|  1 | Ramesh   |  32 | Ahmedabad |  2000.00 |
+|  2 | Khilan   |  25 | Delhi     |  1500.00 |
+|  3 | kaushik  |  23 | Kota      |  2000.00 |
+|  4 | Chaitali |  25 | Mumbai    |  6500.00 |
+|  5 | Hardik   |  27 | Bhopal    |  8500.00 |
+|  6 | Komal    |  22 | MP        |  4500.00 |
+|  7 | Muffy    |  24 | Indore    | 10000.00 |
++----+----------+-----+-----------+----------+
+
+Table 2 − ORDERS Table is as follows.
++-----+---------------------+-------------+--------+
+|OID  | DATE                | CUSTOMER_ID | AMOUNT |
++-----+---------------------+-------------+--------+
+| 102 | 2009-10-08 00:00:00 |           3 |   3000 |
+| 100 | 2009-10-08 00:00:00 |           3 |   1500 |
+| 101 | 2009-11-20 00:00:00 |           2 |   1560 |
+| 103 | 2008-05-20 00:00:00 |           4 |   2060 |
++-----+---------------------+-------------+--------+
+
+Now, let us join these two tables in our SELECT statement as follows −
+
+SQL> SELECT ID, SALARY FROM CUSTOMERS UNION SELECT OID, AMOUNT FROM ORDERS;
+
+This would produce the following result −
+
++-----+----------+
+| ID  | SALARY   |
++-----+----------+
+|   1 |  2000.00 |
+|   2 |  1500.00 |
+|   3 |  2000.00 |
+|   4 |  6500.00 |
+|   5 |  8500.00 |
+|   6 |  4500.00 |
+|   7 | 10000.00 |
+| 100 |  1500.00 |
+| 101 |  1560.00 |
+| 102 |  3000.00 |
+| 103 |  2060.00 |
++-----+----------+
+
+SQL> SELECT  ID, NAME, AMOUNT, DATE
+   FROM CUSTOMERS
+   LEFT JOIN ORDERS
+   ON CUSTOMERS.ID = ORDERS.CUSTOMER_ID
+UNION
+   SELECT  ID, NAME, AMOUNT, DATE
+   FROM CUSTOMERS
+   RIGHT JOIN ORDERS
+   ON CUSTOMERS.ID = ORDERS.CUSTOMER_ID;
+
+This would produce the following result −
+
++------+----------+--------+---------------------+
+| ID   | NAME     | AMOUNT | DATE                |
++------+----------+--------+---------------------+
+|    1 | Ramesh   |   NULL | NULL                |
+|    2 | Khilan   |   1560 | 2009-11-20 00:00:00 |
+|    3 | kaushik  |   3000 | 2009-10-08 00:00:00 |
+|    3 | kaushik  |   1500 | 2009-10-08 00:00:00 |
+|    4 | Chaitali |   2060 | 2008-05-20 00:00:00 |
+|    5 | Hardik   |   NULL | NULL                |
+|    6 | Komal    |   NULL | NULL                |
+|    7 | Muffy    |   NULL | NULL                |
++------+----------+--------+---------------------+
+
+-------------------------------------------------------------------------------
+The UNION ALL Clause
+
+The UNION ALL operator is used to combine the results of two SELECT statements including duplicate rows.
+
+The same rules that apply to the UNION clause will apply to the UNION ALL operator.
+
+Syntax
+The basic syntax of the UNION ALL is as follows.
+
+SELECT column1 [, column2 ]
+FROM table1 [, table2 ]
+[WHERE condition]
+UNION ALL
+SELECT column1 [, column2 ]
+FROM table1 [, table2 ]
+[WHERE condition]
+
+Here, the given condition could be any given expression based on your requirement.
+
+Example
+Consider the following two tables,
+
+Table 1 − CUSTOMERS Table is as follows.
++----+----------+-----+-----------+----------+
+| ID | NAME     | AGE | ADDRESS   | SALARY   |
++----+----------+-----+-----------+----------+
+|  1 | Ramesh   |  32 | Ahmedabad |  2000.00 |
+|  2 | Khilan   |  25 | Delhi     |  1500.00 |
+|  3 | kaushik  |  23 | Kota      |  2000.00 |
+|  4 | Chaitali |  25 | Mumbai    |  6500.00 |
+|  5 | Hardik   |  27 | Bhopal    |  8500.00 |
+|  6 | Komal    |  22 | MP        |  4500.00 |
+|  7 | Muffy    |  24 | Indore    | 10000.00 |
++----+----------+-----+-----------+----------+
+
+Table 2 − ORDERS table is as follows.
++-----+---------------------+-------------+--------+
+|OID  | DATE                | CUSTOMER_ID | AMOUNT |
++-----+---------------------+-------------+--------+
+| 102 | 2009-10-08 00:00:00 |           3 |   3000 |
+| 100 | 2009-10-08 00:00:00 |           3 |   1500 |
+| 101 | 2009-11-20 00:00:00 |           2 |   1560 |
+| 103 | 2008-05-20 00:00:00 |           4 |   2060 |
++-----+---------------------+-------------+--------+
+Now, let us join these two tables in our SELECT statement as follows −
+
+SQL> SELECT  ID, NAME, AMOUNT, DATE
+   FROM CUSTOMERS
+   LEFT JOIN ORDERS
+   ON CUSTOMERS.ID = ORDERS.CUSTOMER_ID
+UNION ALL
+   SELECT  ID, NAME, AMOUNT, DATE
+   FROM CUSTOMERS
+   RIGHT JOIN ORDERS
+   ON CUSTOMERS.ID = ORDERS.CUSTOMER_ID;
+
+This would produce the following result −
++------+----------+--------+---------------------+
+| ID   | NAME     | AMOUNT | DATE                |
++------+----------+--------+---------------------+
+|    1 | Ramesh   |   NULL | NULL                |
+|    2 | Khilan   |   1560 | 2009-11-20 00:00:00 |
+|    3 | kaushik  |   3000 | 2009-10-08 00:00:00 |
+|    3 | kaushik  |   1500 | 2009-10-08 00:00:00 |
+|    4 | Chaitali |   2060 | 2008-05-20 00:00:00 |
+|    5 | Hardik   |   NULL | NULL                |
+|    6 | Komal    |   NULL | NULL                |
+|    7 | Muffy    |   NULL | NULL                |
+|    3 | kaushik  |   3000 | 2009-10-08 00:00:00 |
+|    3 | kaushik  |   1500 | 2009-10-08 00:00:00 |
+|    2 | Khilan   |   1560 | 2009-11-20 00:00:00 |
+|    4 | Chaitali |   2060 | 2008-05-20 00:00:00 |
++------+----------+--------+---------------------+
+
+There are two other clauses (i.e., operators), which are like the UNION clause.
+
+SQL INTERSECT Clause − This is used to combine two SELECT statements, but returns rows only from the first SELECT statement that are identical to a row in the second SELECT statement.
+
+SQL EXCEPT Clause − This combines two SELECT statements and returns rows from the first SELECT statement that are not returned by the second SELECT statement.
+
+The SQL INTERSECT clause/operator is used to combine two SELECT statements, but returns rows only from the first SELECT statement that are identical to a row in the second SELECT statement. This means INTERSECT returns only common rows returned by the two SELECT statements.
+
+Just as with the UNION operator, the same rules apply when using the INTERSECT operator. MySQL does not support the INTERSECT operator.
+
+Syntax
+
+The basic syntax of INTERSECT is as follows.
+
+SELECT column1 [, column2 ]
+FROM table1 [, table2 ]
+[WHERE condition]
+INTERSECT
+SELECT column1 [, column2 ]
+FROM table1 [, table2 ]
+[WHERE condition]
+Here, the given condition could be any given expression based on your requirement.
+
+Example
+Consider the following two tables.
+
+Table 1 − CUSTOMERS Table is as follows
++----+----------+-----+-----------+----------+
+| ID | NAME     | AGE | ADDRESS   | SALARY   |
++----+----------+-----+-----------+----------+
+|  1 | Ramesh   |  32 | Ahmedabad |  2000.00 |
+|  2 | Khilan   |  25 | Delhi     |  1500.00 |
+|  3 | kaushik  |  23 | Kota      |  2000.00 |
+|  4 | Chaitali |  25 | Mumbai    |  6500.00 |
+|  5 | Hardik   |  27 | Bhopal    |  8500.00 |
+|  6 | Komal    |  22 | MP        |  4500.00 |
+|  7 | Muffy    |  24 | Indore    | 10000.00 |
++----+----------+-----+-----------+----------+
+
+Table 2 − ORDERS Table is as follows.
++-----+---------------------+-------------+--------+
+|OID  | DATE                | CUSTOMER_ID | AMOUNT |
++-----+---------------------+-------------+--------+
+| 102 | 2009-10-08 00:00:00 |           3 |   3000 |
+| 100 | 2009-10-08 00:00:00 |           3 |   1500 |
+| 101 | 2009-11-20 00:00:00 |           2 |   1560 |
+| 103 | 2008-05-20 00:00:00 |           4 |   2060 |
++-----+---------------------+-------------+--------+
+
+Now, let us join these two tables in our SELECT statement as follows.
+
+SQL> SELECT  ID, NAME, AMOUNT, DATE
+   FROM CUSTOMERS
+   LEFT JOIN ORDERS
+   ON CUSTOMERS.ID = ORDERS.CUSTOMER_ID
+INTERSECT
+   SELECT  ID, NAME, AMOUNT, DATE
+   FROM CUSTOMERS
+   RIGHT JOIN ORDERS
+   ON CUSTOMERS.ID = ORDERS.CUSTOMER_ID;
+
+This would produce the following result.
+
++------+---------+--------+---------------------+
+| ID   | NAME    | AMOUNT | DATE                |
++------+---------+--------+---------------------+
+|    3 | kaushik |   3000 | 2009-10-08 00:00:00 |
+|    3 | kaushik |   1500 | 2009-10-08 00:00:00 |
+|    2 | Ramesh  |   1560 | 2009-11-20 00:00:00 |
+|    4 | kaushik |   2060 | 2008-05-20 00:00:00 |
++------+---------+--------+---------------------+
+
+SQL - EXCEPT Clause
+
+The SQL EXCEPT clause/operator is used to combine two SELECT statements and returns rows from the first SELECT statement that are not returned by the second SELECT statement. This means EXCEPT returns only rows, which are not available in the second SELECT statement.
+
+Just as with the UNION operator, the same rules apply when using the EXCEPT operator. MySQL does not support the EXCEPT operator.
+
+Syntax
+The basic syntax of EXCEPT is as follows.
+
+SELECT column1 [, column2 ]
+FROM table1 [, table2 ]
+[WHERE condition]
+
+EXCEPT
+
+SELECT column1 [, column2 ]
+FROM table1 [, table2 ]
+[WHERE condition]
+Here, the given condition could be any given expression based on your requirement.
+
+Example
+Consider the following two tables.
+
+Table 1 − CUSTOMERS Table is as follows.
++----+----------+-----+-----------+----------+
+| ID | NAME     | AGE | ADDRESS   | SALARY   |
++----+----------+-----+-----------+----------+
+|  1 | Ramesh   |  32 | Ahmedabad |  2000.00 |
+|  2 | Khilan   |  25 | Delhi     |  1500.00 |
+|  3 | kaushik  |  23 | Kota      |  2000.00 |
+|  4 | Chaitali |  25 | Mumbai    |  6500.00 |
+|  5 | Hardik   |  27 | Bhopal    |  8500.00 |
+|  6 | Komal    |  22 | MP        |  4500.00 |
+|  7 | Muffy    |  24 | Indore    | 10000.00 |
++----+----------+-----+-----------+----------+
+
+Table 2 − ORDERS table is as follows.
++-----+---------------------+-------------+--------+
+|OID  | DATE                | CUSTOMER_ID | AMOUNT |
++-----+---------------------+-------------+--------+
+| 102 | 2009-10-08 00:00:00 |           3 |   3000 |
+| 100 | 2009-10-08 00:00:00 |           3 |   1500 |
+| 101 | 2009-11-20 00:00:00 |           2 |   1560 |
+| 103 | 2008-05-20 00:00:00 |           4 |   2060 |
++-----+---------------------+-------------+--------+
+
+Now, let us join these two tables in our SELECT statement as shown below.
+
+SQL> SELECT  ID, NAME, AMOUNT, DATE
+   FROM CUSTOMERS
+   LEFT JOIN ORDERS
+   ON CUSTOMERS.ID = ORDERS.CUSTOMER_ID
+EXCEPT
+   SELECT  ID, NAME, AMOUNT, DATE
+   FROM CUSTOMERS
+   RIGHT JOIN ORDERS
+   ON CUSTOMERS.ID = ORDERS.CUSTOMER_ID;
+
+This would produce the following result.
+
++----+---------+--------+---------------------+
+| ID | NAME    | AMOUNT | DATE                |
++----+---------+--------+---------------------+
+|  1 | Ramesh  |   NULL | NULL                |
+|  5 | Hardik  |   NULL | NULL                |
+|  6 | Komal   |   NULL | NULL                |
+|  7 | Muffy   |   NULL | NULL                |
++----+---------+--------+---------------------+
+-------------------------------------------------------------------------------
+SQL - USING JOINS
+
+The SQL Joins clause is used to combine records from two or more tables in a database. A JOIN is a means for combining fields from two tables by using values common to each.
+
+Consider the following two tables −
+
+Table 1 − CUSTOMERS Table
+
++----+----------+-----+-----------+----------+
+| ID | NAME     | AGE | ADDRESS   | SALARY   |
++----+----------+-----+-----------+----------+
+|  1 | Ramesh   |  32 | Ahmedabad |  2000.00 |
+|  2 | Khilan   |  25 | Delhi     |  1500.00 |
+|  3 | kaushik  |  23 | Kota      |  2000.00 |
+|  4 | Chaitali |  25 | Mumbai    |  6500.00 |
+|  5 | Hardik   |  27 | Bhopal    |  8500.00 |
+|  6 | Komal    |  22 | MP        |  4500.00 |
+|  7 | Muffy    |  24 | Indore    | 10000.00 |
++----+----------+-----+-----------+----------+
+
+Table 2 − ORDERS Table
+
+CREATE TABLE ORDERS(
+   OID   INT              NOT NULL,
+   DATE DATE     NOT NULL,
+   CUSTOMER_ID  INT              NOT NULL,
+   AMOUNT   DECIMAL (18, 2),
+   PRIMARY KEY (OID)
+);
+
+INSERT INTO ORDERS VALUES (102, '2009-10-08 00:00:00', 3, 3000 );
+INSERT INTO ORDERS VALUES (100, '2009-10-08 00:00:00', 3, 1500 );
+INSERT INTO ORDERS VALUES (101, '2009-11-20 00:00:00', 2, 1560 );
+INSERT INTO ORDERS VALUES (103, '2008-05-20 00:00:00', 4, 2060 );
+
++-----+---------------------+-------------+--------+
+|OID  | DATE                | CUSTOMER_ID | AMOUNT |
++-----+---------------------+-------------+--------+
+| 102 | 2009-10-08 00:00:00 |           3 |   3000 |
+| 100 | 2009-10-08 00:00:00 |           3 |   1500 |
+| 101 | 2009-11-20 00:00:00 |           2 |   1560 |
+| 103 | 2008-05-20 00:00:00 |           4 |   2060 |
++-----+---------------------+-------------+--------+
+Now, let us join these two tables in our SELECT statement as shown below.
+
+SQL> SELECT ID, NAME, AGE, AMOUNT
+   FROM CUSTOMERS, ORDERS
+   WHERE  CUSTOMERS.ID = ORDERS.CUSTOMER_ID;
+
+This would produce the following result.
++----+----------+-----+--------+
+| ID | NAME     | AGE | AMOUNT |
++----+----------+-----+--------+
+|  3 | kaushik  |  23 |   3000 |
+|  3 | kaushik  |  23 |   1500 |
+|  2 | Khilan   |  25 |   1560 |
+|  4 | Chaitali |  25 |   2060 |
++----+----------+-----+--------+
+Here, it is noticeable that the join is performed in the WHERE clause. Several operators can be used to join tables, such as =, <, >, <>, <=, >=, !=, BETWEEN, LIKE, and NOT; they can all be used to join tables. However, the most common operator is the equal to symbol.
+
+There are different types of joins available in SQL −
+
+INNER JOIN − returns rows when there is a match in both tables.
+LEFT JOIN − returns all rows from the left table, even if there are no matches in the right table.
+RIGHT JOIN − returns all rows from the right table, even if there are no matches in the left table.
+FULL JOIN − returns rows when there is a match in one of the tables.
+SELF JOIN − is used to join a table to itself as if the table were two tables, temporarily renaming at least one table in the SQL statement.
+CARTESIAN JOIN − returns the Cartesian product of the sets of records from the two or more joined tables.
+-------------------------------------------------------------------------------
+SQL - INNER JOINS
+
+The most important and frequently used of the joins is the INNER JOIN. They are also referred to as an EQUIJOIN.
+
+The INNER JOIN creates a new result table by combining column values of two tables (table1 and table2) based upon the join-predicate. The query compares each row of table1 with each row of table2 to find all pairs of rows which satisfy the join-predicate. When the join-predicate is satisfied, column values for each matched pair of rows of A and B are combined into a result row.
+
+Syntax
+The basic syntax of the INNER JOIN is as follows.
+
+SELECT table1.column1, table2.column2...
+FROM table1
+INNER JOIN table2
+ON table1.common_field = table2.common_field;
+
+Example
+Consider the following two tables.
+
+Table 1 − CUSTOMERS Table is as follows.
++----+----------+-----+-----------+----------+
+| ID | NAME     | AGE | ADDRESS   | SALARY   |
++----+----------+-----+-----------+----------+
+|  1 | Ramesh   |  32 | Ahmedabad |  2000.00 |
+|  2 | Khilan   |  25 | Delhi     |  1500.00 |
+|  3 | kaushik  |  23 | Kota      |  2000.00 |
+|  4 | Chaitali |  25 | Mumbai    |  6500.00 |
+|  5 | Hardik   |  27 | Bhopal    |  8500.00 |
+|  6 | Komal    |  22 | MP        |  4500.00 |
+|  7 | Muffy    |  24 | Indore    | 10000.00 |
++----+----------+-----+-----------+----------+
+
+Table 2 − ORDERS Table is as follows.
++-----+---------------------+-------------+--------+
+| OID | DATE                | CUSTOMER_ID | AMOUNT |
++-----+---------------------+-------------+--------+
+| 102 | 2009-10-08 00:00:00 |           3 |   3000 |
+| 100 | 2009-10-08 00:00:00 |           3 |   1500 |
+| 101 | 2009-11-20 00:00:00 |           2 |   1560 |
+| 103 | 2008-05-20 00:00:00 |           4 |   2060 |
++-----+---------------------+-------------+--------+
+
+Now, let us join these two tables using the INNER JOIN as follows −
+
+SQL> SELECT  ID, NAME, AMOUNT, DATE
+   FROM CUSTOMERS
+   INNER JOIN ORDERS
+   ON CUSTOMERS.ID = ORDERS.CUSTOMER_ID;
+
+This would produce the following result.
++----+----------+--------+---------------------+
+| ID | NAME     | AMOUNT | DATE                |
++----+----------+--------+---------------------+
+|  3 | kaushik  |   3000 | 2009-10-08 00:00:00 |
+|  3 | kaushik  |   1500 | 2009-10-08 00:00:00 |
+|  2 | Khilan   |   1560 | 2009-11-20 00:00:00 |
+|  4 | Chaitali |   2060 | 2008-05-20 00:00:00 |
++----+----------+--------+---------------------+
+-------------------------------------------------------------------------------
+SQL - LEFT JOINS
+
+The SQL LEFT JOIN returns all rows from the left table, even if there are no matches in the right table. This means that if the ON clause matches 0 (zero) records in the right table; the join will still return a row in the result, but with NULL in each column from the right table.
+
+This means that a left join returns all the values from the left table, plus matched values from the right table or NULL in case of no matching join predicate.
+
+Syntax
+The basic syntax of a LEFT JOIN is as follows.
+
+SELECT table1.column1, table2.column2...
+FROM table1
+LEFT JOIN table2
+ON table1.common_field = table2.common_field;
+
+Here, the given condition could be any given expression based on your requirement.
+
+Example
+
+Consider the following two tables,
+
+Table 1 − CUSTOMERS Table is as follows.
++----+----------+-----+-----------+----------+
+| ID | NAME     | AGE | ADDRESS   | SALARY   |
++----+----------+-----+-----------+----------+
+|  1 | Ramesh   |  32 | Ahmedabad |  2000.00 |
+|  2 | Khilan   |  25 | Delhi     |  1500.00 |
+|  3 | kaushik  |  23 | Kota      |  2000.00 |
+|  4 | Chaitali |  25 | Mumbai    |  6500.00 |
+|  5 | Hardik   |  27 | Bhopal    |  8500.00 |
+|  6 | Komal    |  22 | MP        |  4500.00 |
+|  7 | Muffy    |  24 | Indore    | 10000.00 |
++----+----------+-----+-----------+----------+
+
+Table 2 − Orders Table is as follows.
++-----+---------------------+-------------+--------+
+| OID | DATE                | CUSTOMER_ID | AMOUNT |
++-----+---------------------+-------------+--------+
+| 102 | 2009-10-08 00:00:00 |           3 |   3000 |
+| 100 | 2009-10-08 00:00:00 |           3 |   1500 |
+| 101 | 2009-11-20 00:00:00 |           2 |   1560 |
+| 103 | 2008-05-20 00:00:00 |           4 |   2060 |
++-----+---------------------+-------------+--------+
+
+Now, let us join these two tables using the LEFT JOIN as follows.
+
+SQL> SELECT  ID, NAME, AMOUNT, DATE
+   FROM CUSTOMERS
+   LEFT JOIN ORDERS
+   ON CUSTOMERS.ID = ORDERS.CUSTOMER_ID;
+
+This would produce the following result −
++----+----------+--------+---------------------+
+| ID | NAME     | AMOUNT | DATE                |
++----+----------+--------+---------------------+
+|  1 | Ramesh   |   NULL | NULL                |
+|  2 | Khilan   |   1560 | 2009-11-20 00:00:00 |
+|  3 | kaushik  |   3000 | 2009-10-08 00:00:00 |
+|  3 | kaushik  |   1500 | 2009-10-08 00:00:00 |
+|  4 | Chaitali |   2060 | 2008-05-20 00:00:00 |
+|  5 | Hardik   |   NULL | NULL                |
+|  6 | Komal    |   NULL | NULL                |
+|  7 | Muffy    |   NULL | NULL                |
++----+----------+--------+---------------------+
+-------------------------------------------------------------------------------
+SQL - RIGHT JOINS
+
+The SQL RIGHT JOIN returns all rows from the right table, even if there are no matches in the left table. This means that if the ON clause matches 0 (zero) records in the left table; the join will still return a row in the result, but with NULL in each column from the left table.
+
+This means that a right join returns all the values from the right table, plus matched values from the left table or NULL in case of no matching join predicate.
+
+Syntax
+The basic syntax of a RIGHT JOIN is as follow.
+
+SELECT table1.column1, table2.column2...
+FROM table1
+RIGHT JOIN table2
+ON table1.common_field = table2.common_field;
+
+Example
+Consider the following two tables,
+
+Table 1 − CUSTOMERS Table is as follows.
++----+----------+-----+-----------+----------+
+| ID | NAME     | AGE | ADDRESS   | SALARY   |
++----+----------+-----+-----------+----------+
+|  1 | Ramesh   |  32 | Ahmedabad |  2000.00 |
+|  2 | Khilan   |  25 | Delhi     |  1500.00 |
+|  3 | kaushik  |  23 | Kota      |  2000.00 |
+|  4 | Chaitali |  25 | Mumbai    |  6500.00 |
+|  5 | Hardik   |  27 | Bhopal    |  8500.00 |
+|  6 | Komal    |  22 | MP        |  4500.00 |
+|  7 | Muffy    |  24 | Indore    | 10000.00 |
++----+----------+-----+-----------+----------+
+
+Table 2 − ORDERS Table is as follows.
++-----+---------------------+-------------+--------+
+|OID  | DATE                | CUSTOMER_ID | AMOUNT |
++-----+---------------------+-------------+--------+
+| 102 | 2009-10-08 00:00:00 |           3 |   3000 |
+| 100 | 2009-10-08 00:00:00 |           3 |   1500 |
+| 101 | 2009-11-20 00:00:00 |           2 |   1560 |
+| 103 | 2008-05-20 00:00:00 |           4 |   2060 |
++-----+---------------------+-------------+--------+
+
+Now, let us join these two tables using the RIGHT JOIN as follows.
+
+SQL> SELECT  ID, NAME, AMOUNT, DATE
+   FROM CUSTOMERS
+   RIGHT JOIN ORDERS
+   ON CUSTOMERS.ID = ORDERS.CUSTOMER_ID;
+
+This would produce the following result −
++------+----------+--------+---------------------+
+| ID   | NAME     | AMOUNT | DATE                |
++------+----------+--------+---------------------+
+|    3 | kaushik  |   3000 | 2009-10-08 00:00:00 |
+|    3 | kaushik  |   1500 | 2009-10-08 00:00:00 |
+|    2 | Khilan   |   1560 | 2009-11-20 00:00:00 |
+|    4 | Chaitali |   2060 | 2008-05-20 00:00:00 |
++------+----------+--------+---------------------+
+-------------------------------------------------------------------------------
+SQL - FULL JOINS
+
+The SQL FULL JOIN combines the results of both left and right outer joins.
+
+The joined table will contain all records from both the tables and fill in NULLs for missing matches on either side.
+
+Syntax
+The basic syntax of a FULL JOIN is as follows −
+
+SELECT table1.column1, table2.column2...
+FROM table1
+FULL JOIN table2
+ON table1.common_field = table2.common_field;
+Here, the given condition could be any given expression based on your requirement.
+
+Example
+Consider the following two tables.
+
+Table 1 − CUSTOMERS Table is as follows.
++----+----------+-----+-----------+----------+
+| ID | NAME     | AGE | ADDRESS   | SALARY   |
++----+----------+-----+-----------+----------+
+|  1 | Ramesh   |  32 | Ahmedabad |  2000.00 |
+|  2 | Khilan   |  25 | Delhi     |  1500.00 |
+|  3 | kaushik  |  23 | Kota      |  2000.00 |
+|  4 | Chaitali |  25 | Mumbai    |  6500.00 |
+|  5 | Hardik   |  27 | Bhopal    |  8500.00 |
+|  6 | Komal    |  22 | MP        |  4500.00 |
+|  7 | Muffy    |  24 | Indore    | 10000.00 |
++----+----------+-----+-----------+----------+
+
+Table 2 − ORDERS Table is as follows.
++-----+---------------------+-------------+--------+
+|OID  | DATE                | CUSTOMER_ID | AMOUNT |
++-----+---------------------+-------------+--------+
+| 102 | 2009-10-08 00:00:00 |           3 |   3000 |
+| 100 | 2009-10-08 00:00:00 |           3 |   1500 |
+| 101 | 2009-11-20 00:00:00 |           2 |   1560 |
+| 103 | 2008-05-20 00:00:00 |           4 |   2060 |
++-----+---------------------+-------------+--------+
+
+Now, let us join these two tables using FULL JOIN as follows.
+
+SQL> SELECT  ID, NAME, AMOUNT, DATE
+   FROM CUSTOMERS
+   FULL JOIN ORDERS
+   ON CUSTOMERS.ID = ORDERS.CUSTOMER_ID;
+
+This would produce the following result −
++------+----------+--------+---------------------+
+| ID   | NAME     | AMOUNT | DATE                |
++------+----------+--------+---------------------+
+|    1 | Ramesh   |   NULL | NULL                |
+|    2 | Khilan   |   1560 | 2009-11-20 00:00:00 |
+|    3 | kaushik  |   3000 | 2009-10-08 00:00:00 |
+|    3 | kaushik  |   1500 | 2009-10-08 00:00:00 |
+|    4 | Chaitali |   2060 | 2008-05-20 00:00:00 |
+|    5 | Hardik   |   NULL | NULL                |
+|    6 | Komal    |   NULL | NULL                |
+|    7 | Muffy    |   NULL | NULL                |
+|    3 | kaushik  |   3000 | 2009-10-08 00:00:00 |
+|    3 | kaushik  |   1500 | 2009-10-08 00:00:00 |
+|    2 | Khilan   |   1560 | 2009-11-20 00:00:00 |
+|    4 | Chaitali |   2060 | 2008-05-20 00:00:00 |
++------+----------+--------+---------------------+
+
+If your Database does not support FULL JOIN (MySQL does not support FULL JOIN), then you can use UNION ALL clause to combine these two JOINS as shown below.
+
+SQL> SELECT  ID, NAME, AMOUNT, DATE
+   FROM CUSTOMERS
+   LEFT JOIN ORDERS
+   ON CUSTOMERS.ID = ORDERS.CUSTOMER_ID
+UNION ALL
+   SELECT  ID, NAME, AMOUNT, DATE
+   FROM CUSTOMERS
+   RIGHT JOIN ORDERS
+   ON CUSTOMERS.ID = ORDERS.CUSTOMER_ID
+-------------------------------------------------------------------------------
+SQL - SELF JOINS
+
+The SQL SELF JOIN is used to join a table to itself as if the table were two tables; temporarily renaming at least one table in the SQL statement.
+
+Syntax
+The basic syntax of SELF JOIN is as follows −
+
+SELECT a.column_name, b.column_name...
+FROM table1 a, table1 b
+WHERE a.common_field = b.common_field;
+
+Here, the WHERE clause could be any given expression based on your requirement.
+
+Example
+Consider the following table.
+
+CUSTOMERS Table is as follows.
++----+----------+-----+-----------+----------+
+| ID | NAME     | AGE | ADDRESS   | SALARY   |
++----+----------+-----+-----------+----------+
+|  1 | Ramesh   |  32 | Ahmedabad |  2000.00 |
+|  2 | Khilan   |  25 | Delhi     |  1500.00 |
+|  3 | kaushik  |  23 | Kota      |  2000.00 |
+|  4 | Chaitali |  25 | Mumbai    |  6500.00 |
+|  5 | Hardik   |  27 | Bhopal    |  8500.00 |
+|  6 | Komal    |  22 | MP        |  4500.00 |
+|  7 | Muffy    |  24 | Indore    | 10000.00 |
++----+----------+-----+-----------+----------+
+
+Now, let us join this table using SELF JOIN as follows −
+
+SQL> SELECT  a.ID, b.NAME, a.SALARY
+   FROM CUSTOMERS a, CUSTOMERS b
+   WHERE a.SALARY < b.SALARY;
+
+This would produce the following result −
++----+----------+---------+
+| ID | NAME     | SALARY  |
++----+----------+---------+
+|  2 | Ramesh   | 1500.00 |
+|  2 | kaushik  | 1500.00 |
+|  1 | Chaitali | 2000.00 |
+|  2 | Chaitali | 1500.00 |
+|  3 | Chaitali | 2000.00 |
+|  6 | Chaitali | 4500.00 |
+|  1 | Hardik   | 2000.00 |
+|  2 | Hardik   | 1500.00 |
+|  3 | Hardik   | 2000.00 |
+|  4 | Hardik   | 6500.00 |
+|  6 | Hardik   | 4500.00 |
+|  1 | Komal    | 2000.00 |
+|  2 | Komal    | 1500.00 |
+|  3 | Komal    | 2000.00 |
+|  1 | Muffy    | 2000.00 |
+|  2 | Muffy    | 1500.00 |
+|  3 | Muffy    | 2000.00 |
+|  4 | Muffy    | 6500.00 |
+|  5 | Muffy    | 8500.00 |
+|  6 | Muffy    | 4500.00 |
++----+----------+---------+   
+-------------------------------------------------------------------------------
+SQL - Sub Queries
+
+A Subquery or Inner query or a Nested query is a query within another SQL query and embedded within the WHERE clause.
+A subquery is used to return data that will be used in the main query as a condition to further restrict the data to be retrieved.
+Subqueries can be used with the SELECT, INSERT, UPDATE, and DELETE statements along with the operators like =, <, >, >=, <=, IN, BETWEEN, etc.
+
+There are a few rules that subqueries must follow −
+
+=> Subqueries must be enclosed within parentheses.
+=> A subquery can have only one column in the SELECT clause, unless multiple columns are in the main query for the subquery to compare its selected columns.
+=> An ORDER BY command cannot be used in a subquery, although the main query can use an ORDER BY. The GROUP BY command can be used to perform the same function as the ORDER BY in a subquery.
+=> Subqueries that return more than one row can only be used with multiple value operators such as the IN operator.
+=> The SELECT list cannot include any references to values that evaluate to a BLOB, ARRAY, CLOB, or NCLOB.
+=> A subquery cannot be immediately enclosed in a set function.
+=> The BETWEEN operator cannot be used with a subquery. However, the BETWEEN operator can be used within the subquery.
+
+Subqueries are most frequently used with the SELECT statement. The basic syntax is as follows −
+
+SELECT column_name [, column_name ]
+FROM   table1 [, table2 ]
+WHERE  column_name OPERATOR
+   (SELECT column_name [, column_name ]
+   FROM table1 [, table2 ]
+   [WHERE])
+
+Example
+Consider the CUSTOMERS table having the following records −
+
++----+----------+-----+-----------+----------+
+| ID | NAME     | AGE | ADDRESS   | SALARY   |
++----+----------+-----+-----------+----------+
+|  1 | Ramesh   |  35 | Ahmedabad |  2000.00 |
+|  2 | Khilan   |  25 | Delhi     |  1500.00 |
+|  3 | kaushik  |  23 | Kota      |  2000.00 |
+|  4 | Chaitali |  25 | Mumbai    |  6500.00 |
+|  5 | Hardik   |  27 | Bhopal    |  8500.00 |
+|  6 | Komal    |  22 | MP        |  4500.00 |
+|  7 | Muffy    |  24 | Indore    | 10000.00 |
++----+----------+-----+-----------+----------+
+
+Now, let us check the following subquery with a SELECT statement.
+
+SQL> SELECT * 
+   FROM CUSTOMERS 
+   WHERE ID IN (SELECT ID 
+         FROM CUSTOMERS 
+         WHERE SALARY > 4500) ;
+This would produce the following result.
+
++----+----------+-----+---------+----------+
+| ID | NAME     | AGE | ADDRESS | SALARY   |
++----+----------+-----+---------+----------+
+|  4 | Chaitali |  25 | Mumbai  |  6500.00 |
+|  5 | Hardik   |  27 | Bhopal  |  8500.00 |
+|  7 | Muffy    |  24 | Indore  | 10000.00 |
++----+----------+-----+---------+----------+   
+-------------------------------------------------------------------------------
+SQL - Having Clause
+
+The HAVING Clause enables you to specify conditions that filter which group results appear in the results.
+
+The WHERE clause places conditions on the selected columns, whereas the HAVING clause places conditions on groups created by the GROUP BY clause.
+
+Syntax
+The following code block shows the position of the HAVING Clause in a query.
+
+SELECT
+FROM
+WHERE
+GROUP BY
+HAVING
+ORDER BY
+
+The HAVING clause must follow the GROUP BY clause in a query and must also precede the ORDER BY clause if used. The following code block has the syntax of the SELECT statement including the HAVING clause −
+
+SELECT column1, column2
+FROM table1, table2
+WHERE [ conditions ]
+GROUP BY column1, column2
+HAVING [ conditions ]
+ORDER BY column1, column2
+
+Example
+Consider the CUSTOMERS table having the following records.
+
++----+----------+-----+-----------+----------+
+| ID | NAME     | AGE | ADDRESS   | SALARY   |
++----+----------+-----+-----------+----------+
+|  1 | Ramesh   |  32 | Ahmedabad |  2000.00 |
+|  2 | Khilan   |  25 | Delhi     |  1500.00 |
+|  3 | kaushik  |  23 | Kota      |  2000.00 |
+|  4 | Chaitali |  25 | Mumbai    |  6500.00 |
+|  5 | Hardik   |  27 | Bhopal    |  8500.00 |
+|  6 | Komal    |  22 | MP        |  4500.00 |
+|  7 | Muffy    |  24 | Indore    | 10000.00 |
++----+----------+-----+-----------+----------+
+
+Following is an example, which would display a record for a similar age count that would be more than or equal to 2.
+
+SQL > SELECT ID, NAME, AGE, ADDRESS, SALARY
+FROM CUSTOMERS
+GROUP BY age
+HAVING COUNT(age) >= 2;
+
+This would produce the following result −
+
++----+--------+-----+---------+---------+
+| ID | NAME   | AGE | ADDRESS | SALARY  |
++----+--------+-----+---------+---------+
+|  2 | Khilan |  25 | Delhi   | 1500.00 |
++----+--------+-----+---------+---------+
